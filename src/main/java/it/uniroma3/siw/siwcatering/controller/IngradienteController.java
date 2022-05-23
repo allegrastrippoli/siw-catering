@@ -32,11 +32,11 @@ public class IngradienteController {
 	
 
 	@PostMapping("/ingradiente")
-	public String addIngradiente(@Valid @ModelAttribute("ingradiente") Ingradiente ingradiente, Model model, BindingResult bindingResult) {
+	public String addIngradiente(@Valid @ModelAttribute("ingradiente") Ingradiente ingradiente, Model model, BindingResult bindingResults) {
 		
-		iv.validate(ingradiente, bindingResult);
+		iv.validate(ingradiente, bindingResults);
 		
-		if(!bindingResult.hasErrors()) {
+		if(!bindingResults.hasErrors()) {
 			is.save(ingradiente);
 			model.addAttribute("ingradiente", ingradiente);
 			return "ingradiente.html";
@@ -48,11 +48,19 @@ public class IngradienteController {
 	
 	@GetMapping("/ingradienteDelete/{id}")
 	public String deleteIngradiente(@PathVariable("id") Long id, Model model) {
-		
+
 		is.deleteById(id);
-		
+
 		return "index.html";
-		
+
+	}
+
+
+	@GetMapping("/ingradienteModify/{id}")
+	public String modifyIngradiente(@PathVariable("id") Long id, Model model) {
+		Ingradiente ingradiente = is.findById(id);
+		model.addAttribute("ingradiente", ingradiente);
+		return "ingradienteForm.html";
 	}
 	
 	

@@ -17,8 +17,9 @@ public class Piatto {
 	@NotBlank
 	String descrizione;
 	
-	@OneToMany
+	@OneToMany(cascade = {CascadeType.PERSIST})
 	List<Ingradiente> ingradienti;
+
 
 	public Long getId() {
 		return id;

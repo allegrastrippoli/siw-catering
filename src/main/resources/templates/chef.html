@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Dettagli chef</title>
+</head>
+<body>
+<div>
+    <h4>Dettagli chef</h4>
+    <div>
+        <span th:text="${chef.nome}">Paolo</span>
+        <span th:text="${chef.cognome}">Rossi</span>
+        <span th:text="${chef.nazionalita}">28</span>
+    </div>
+    <div>
+        <a th:href="@{/chefList}">elenco chef</a>
+    </div>
+</div>
+<footer>
+    <a href="/">Home</a>
+</footer>
+</body>
+</html>

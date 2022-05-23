@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo</title>
+</head>
+<body>
+<div>
+  <h4>Dettagli ingradiente</h4>
+  <div>
+    <span th:text="${ingradiente.nome}"></span>
+    <span th:text="${ingradiente.origine}"></span>
+    <span th:text="${ingradiente.descrizione}"></span>
+  </div>
+  <div> <a th:href="@{'/ingradienteDelete' + '/' + ${ingradiente.id}}">cancella ingradiente</a></div>
+  <div> <a th:href="@{'/ingradienteModify' + '/' + ${ingradiente.id}}">modifica ingradiente</a></div>
+</div>
+<footer><a href="/">Home</a></footer>
+</body>
+</html>

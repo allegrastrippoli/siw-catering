@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Inserimento ingradiente</title>
+</head>
+<body>
+<form th:action="@{/ingradiente}" method="post" th:object="${ingradiente}">
+
+    <div>nome:<input type="text" th:field="*{nome}" /></div>
+    <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+
+    <div>origine:<input type="text" th:field="*{origine}" /></div>
+    <div th:if="${#fields.hasErrors('origine')}" th:errors="*{origine}"></div>
+
+    <div>descrizione:<input type="text" th:field="*{descrizione}" /></div>
+    <div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
+
+
+    <div><button type="submit"/>Conferma</button></div>
+</form>
+</body>
+</html>
