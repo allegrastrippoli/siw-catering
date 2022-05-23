@@ -1,0 +1,35 @@
+package it.uniroma3.siw.siwcatering.service;
+
+import it.uniroma3.siw.siwcatering.model.Ingradiente;
+import it.uniroma3.siw.siwcatering.repository.IngradienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+
+@Service
+public class IngradienteService {
+	
+	@Autowired
+	private IngradienteRepository ir;
+	
+	@Transactional
+	public void save(Ingradiente ingradiente) {
+		ir.save(ingradiente);
+	}
+	
+	@Transactional
+	public void deleteById(Long id) {
+		ir.deleteById(id);
+	}
+	
+	public Ingradiente findById(Long id) {
+		return ir.findById(id).get();
+	}
+
+	public boolean alreadyExists(Ingradiente ingradiente) {
+		return ir.existsById(ingradiente.getId());
+	}
+	
+
+}
