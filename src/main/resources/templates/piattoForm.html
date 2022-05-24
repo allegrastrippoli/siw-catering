@@ -2,20 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Inserimento buffet</title>
+    <title>Inserimento piatto</title>
 </head>
 <body>
-<form th:action="@{/buffet}" method="post" th:object="${buffet}">
+<form th:action="@{/piatto}" method="post" th:object="${piatto}">
 
     <div>nome:<input type="text" th:field="*{nome}" /></div>
     <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
 
     <div>descrizione:<input type="text" th:field="*{descrizione}" /></div>
     <div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
-
-    <div>chef nome:<input type="text" th:field="*{chef.nome}" /></div>
-    <div>chef cognome:<input type="text" th:field="*{chef.cognome}" /></div>
-    <div>chef nazionalita:<input type="text" th:field="*{chef.nazionalita}" /></div>
 
 
     <div><button type="submit"/>Conferma</button></div>

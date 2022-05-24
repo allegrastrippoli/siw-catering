@@ -21,13 +21,13 @@ import java.util.List;
 public class ChefController {
 
 	@Autowired 
-	private ChefService ps;
+	private ChefService cs;
 
 	@Autowired
 	private BuffetService bs;
 
 	@Autowired
-	private ChefValidator pv;
+	private ChefValidator cv;
 
 	
 	/*GET per lettura
@@ -37,10 +37,10 @@ public class ChefController {
 	@PostMapping("/chef")
 	public String addChef(@Valid @ModelAttribute("chef") Chef chef, Model model, BindingResult bindingResult) {
 		
-		pv.validate(chef, bindingResult);
+		cv.validate(chef, bindingResult);
 		
 		if(!bindingResult.hasErrors()) {
-			ps.save(chef);
+			cs.save(chef);
 			model.addAttribute("chef", chef);
 			return "chef.html";
 		}
@@ -56,7 +56,7 @@ public class ChefController {
 	@GetMapping("/chefDelete/{id}")
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
 
-		ps.deleteById(id);
+		cs.deleteById(id);
 
 		return "index.html";
 
@@ -65,7 +65,7 @@ public class ChefController {
 
 	@GetMapping("/chefModify/{id}")
 	public String modifyChef(@PathVariable("id") Long id, Model model) {
-		Chef chef = ps.findById(id);
+		Chef chef = cs.findById(id);
 		model.addAttribute("chef", chef);
 		return "chefForm.html";
 	}
@@ -73,7 +73,7 @@ public class ChefController {
 
 	@GetMapping("/chefList")
 	public String getChefList( Model model) {
-		List<Chef>chef= ps.findAll();
+		List<Chef>chef= cs.findAll();
 		model.addAttribute("chef", chef);
 		return "chefList.html";
 	}

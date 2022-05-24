@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chef</title>
+</head>
+<body>
+<h4>Elenco piatto</h4>
+<ul>
+    <li th:each="piatto : ${piatto}">
+        <div> <a href="piatto.html"th:href="@{'/piatto' + '/' + ${piatto.id}}"
+                 th:text="${piatto.nome} + ' ' + ${piatto.descrizione}"></a></div>
+        <div> <a th:href="@{'/piattoDelete' + '/' + ${piatto.id}}">cancella piatto</a></div>
+        <div> <a th:href="@{'/piattoModify' + '/' + ${piatto.id}}">modifica piatto</a></div>
+        <div> <a th:href="@{'/piattoVisualizeIngradienti' + '/' + ${piatto.id}}">visualizza piatti</a></div>
+    </li>
+</ul>
+</body>
+</html>

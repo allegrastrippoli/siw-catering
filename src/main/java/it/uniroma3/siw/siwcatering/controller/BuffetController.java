@@ -1,6 +1,7 @@
 package it.uniroma3.siw.siwcatering.controller;
 
 import it.uniroma3.siw.siwcatering.model.Buffet;
+import it.uniroma3.siw.siwcatering.model.Chef;
 import it.uniroma3.siw.siwcatering.service.BuffetService;
 import it.uniroma3.siw.siwcatering.validator.BuffetValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class BuffetController {
 		if(!bindingResult.hasErrors()) {
 			bs.save(buffet);
 			model.addAttribute("buffet", buffet);
+			model.addAttribute("chef", buffet.getChef());
 			return "buffet.html";
 		}
 		return "buffetForm.html";

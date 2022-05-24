@@ -9,7 +9,7 @@ public class Piatto {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
-	private Long id;
+	private long id;
 
 	@NotBlank
 	String nome;
@@ -25,7 +25,7 @@ public class Piatto {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

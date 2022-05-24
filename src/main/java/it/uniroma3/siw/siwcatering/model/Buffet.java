@@ -20,7 +20,7 @@ public class Buffet {
 	@OneToMany(cascade = {CascadeType.PERSIST})
 	List<Piatto> piatti;
 
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.PERSIST})
 	Chef chef;
 
 	public Long getId() {

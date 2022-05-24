@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Demo</title>
+</head>
+<body>
+<div>
+    <h4>Dettagli piatto</h4>
+    <div>
+        <span th:text="${piatto.nome}"></span>
+        <span th:text="${piatto.descrizione}"></span>
+
+    </div>
+    <div> <a th:href="@{'/piattoDelete' + '/' + ${piatto.id}}">cancella piatto</a></div>
+    <div> <a th:href="@{'/piattotModify' + '/' + ${piatto.id}}">modifica piatto</a></div>
+</div>
+<footer><a href="/">Home</a></footer>
+</body>
+</html>
