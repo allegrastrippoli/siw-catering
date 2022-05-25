@@ -1,11 +1,14 @@
 package it.uniroma3.siw.siwcatering.service;
 
 import it.uniroma3.siw.siwcatering.model.Ingradiente;
+import it.uniroma3.siw.siwcatering.model.Piatto;
 import it.uniroma3.siw.siwcatering.repository.IngradienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class IngradienteService {
@@ -29,6 +32,15 @@ public class IngradienteService {
 
 	public boolean alreadyExists(Ingradiente ingradiente) {
 		return ir.existsById(ingradiente.getId());
+	}
+
+	public List<Ingradiente> findAll() {
+
+		List<Ingradiente> ingradienti = new ArrayList<Ingradiente>();
+		for (Ingradiente i : ir.findAll()) {
+			ingradienti.add(i);
+		}
+		return ingradienti;
 	}
 	
 

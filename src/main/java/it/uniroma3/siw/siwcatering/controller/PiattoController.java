@@ -1,7 +1,10 @@
 package it.uniroma3.siw.siwcatering.controller;
 
+import it.uniroma3.siw.siwcatering.model.Buffet;
 import it.uniroma3.siw.siwcatering.model.Ingradiente;
 import it.uniroma3.siw.siwcatering.model.Piatto;
+import it.uniroma3.siw.siwcatering.service.BuffetService;
+import it.uniroma3.siw.siwcatering.service.IngradienteService;
 import it.uniroma3.siw.siwcatering.service.PiattoService;
 import it.uniroma3.siw.siwcatering.validator.PiattoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +23,33 @@ import java.util.List;
 public class PiattoController {
 
     @Autowired
-    private PiattoService ps;
+    private PiattoService piattoService;
 
     @Autowired
-    private PiattoValidator pv;
+    private IngradienteService ingradienteService;
+
+    @Autowired
+    private PiattoValidator piattoValidator;
+
+    @GetMapping("/addIngradientePiatto/{pid}/{iid}")
+    public String addIngradientePiatto(@PathVariable("pid") Long pid, @PathVariable("iid") Long iid, Model model) {
+        Piatto piatto = piattoService.findById(pid);
+        Ingradiente ingradiente = ingradienteService.findById(iid);
+        piatto.getIngradienti().add(ingradiente);
+        model.addAttribute("piatto", piatto);
+        model.addAttribute("ingradienti", ingradienteService.findAll());
+        return "index.html";
+    }
 
     @PostMapping("/piatto")
     public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, Model model, BindingResult bindingResult) {
 
-        pv.validate(piatto, bindingResult);
+        piattoValidator.validate(piatto, bindingResult);
 
         if(!bindingResult.hasErrors()) {
-            ps.save(piatto);
+            piattoService.save(piatto);
             model.addAttribute("piatto", piatto);
+            model.addAttribute("ingradienti",  ingradienteService.findAll());
             return "piatto.html";
         }
         return "piattoForm.html";
@@ -44,10 +61,11 @@ public class PiattoController {
         return "piattoForm.html";
     }
 
+
     @GetMapping("/piattoDelete/{id}")
     public String deletePiatto(@PathVariable("id") Long id, Model model) {
 
-        ps.deleteById(id);
+        piattoService.deleteById(id);
 
         return "index.html";
 
@@ -56,7 +74,7 @@ public class PiattoController {
 
     @GetMapping("/piattoModify/{id}")
     public String modifyPiatto(@PathVariable("id") Long id, Model model) {
-        Piatto piatto = ps.findById(id);
+        Piatto piatto = piattoService.findById(id);
         model.addAttribute("piatto", piatto);
         return "piattoForm.html";
     }
@@ -64,18 +82,10 @@ public class PiattoController {
 
     @GetMapping("/piattoList")
     public String getPiattoList( Model model) {
-        List<Piatto> piatto= ps.findAll();
-        model.addAttribute("piatto", piatto);
+        List<Piatto> piatti= piattoService.findAll();
+        model.addAttribute("piatti", piatti);
         return "piattoList.html";
     }
+    
 
-
-	/*
-	@GetMapping("/piattoVisualizePiatti")
-	public String getPiatti( Model model) {
-		List<Piatto>piatti= ps.findAll();
-		model.addAttribute("piatti", piatti);
-		return "PiattiList.html";
-	}
-	*/
 }

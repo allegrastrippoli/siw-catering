@@ -12,11 +12,16 @@
         <span th:text="${piatto.descrizione}"></span>
 
     </div>
-    <div> <a th:href="@{'/piattoDelete' + '/' + ${piatto.id}}">cancella piatto</a></div>
-    <div> <a th:href="@{'/piattotModify' + '/' + ${piatto.id}}">modifica piatto</a></div>
-    <div>
-        <a th:href="@{/piattoList}">elenco piatti</a>
-    </div>
+
+    <div>aggiungi ingradienti:</div>
+   <ul>
+   <li th:each="ingradiente : ${ingradienti}">
+       <div> <a href="ingradiente.html" th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
+                th:text="${ingradiente.nome} + ' ' + ${ingradiente.descrizione}"></a></div>
+       <div><a th:href="@{'/addIngradientePiatto' + '/' + ${piatto.id}  + '/' + ${ingradiente.id}}">aggiungi</a></div>
+   </li>
+   </ul>
+
 </div>
 <footer><a href="/">Home</a></footer>
 </body>

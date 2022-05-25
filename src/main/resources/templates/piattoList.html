@@ -4,15 +4,23 @@
     <title>Chef</title>
 </head>
 <body>
-<h4>Elenco piatto</h4>
+<h4>Elenco piatti</h4>
 <ul>
-    <li th:each="piatto : ${piatto}">
-        <div> <a href="piatto.html"th:href="@{'/piatto' + '/' + ${piatto.id}}"
+    <li th:each="piatto : ${piatti}">
+
+        <div> <a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"
                  th:text="${piatto.nome} + ' ' + ${piatto.descrizione}"></a></div>
 
-        <div> <a th:href="@{'/piattoDelete' + '/' + ${piatto.id}}">cancella piatto</a></div>
-        <div> <a th:href="@{'/piattoModify' + '/' + ${piatto.id}}">modifica piatto</a></div>
-        <div> <a th:href="@{'/piattoVisualizeIngradienti' + '/' + ${piatto.id}}">visualizza ingradienti</a></div>
+        <!-- da correggere -->
+        
+        <!--ul>
+            <li th:each="ingradiente : ${piatto.ingradienti}" th:object="${ingradiente}">
+
+        <div> <a href="ingradiente.html" th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
+                 th:text="${ingradiente.nome} + ' ' + ${ingradiente.descrizione}"></a></div>
+
+            </li></ul-->
+
     </li>
 </ul>
 </body>

@@ -77,14 +77,6 @@ public class ChefController {
 		return "chefList.html";
 	}
 
-	
-	/*
-	@GetMapping("/chefVisualizeBuffet")
-	public String getBuffet( Model model) {
-		List<Buffet>buffet= bs.findAll();
-		model.addAttribute("buffet", buffet);
-		return "BuffetList.html";
-	}
-	 */
+
 
 }
