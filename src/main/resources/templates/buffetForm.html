@@ -5,17 +5,32 @@
     <title>Inserimento buffet</title>
 </head>
 <body>
+<!--/*@thymesVar id="buffet" type="it.uniroma3.siw.siwcatering.model.Buffet"*/-->
+<!--/*@thymesVar id="chef" type="it.uniroma3.siw.siwcatering.model.Chef"*/-->
+<!--/*@thymesVar id="piatto" type="it.uniroma3.siw.siwcatering.model.Piatto"*/-->
 <form th:action="@{/buffet}" method="post" th:object="${buffet}">
 
-    <div>nome:<input type="text" th:field="*{nome}" /></div>
-    <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+    <div>
+            <div>inserisci informazioni buffet:</div>
+        <div>nome:<input type="text" th:field="*{nome}" /></div>
+        <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
 
-    <div>descrizione:<input type="text" th:field="*{descrizione}" /></div>
-    <div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
+        <div>descrizione:<input type="text" th:field="*{descrizione}" /></div>
+        <div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
+    </div>
 
-    <div>chef nome:<input type="text" th:field="*{chef.nome}" /></div>
-    <div>chef cognome:<input type="text" th:field="*{chef.cognome}" /></div>
-    <div>chef nazionalita:<input type="text" th:field="*{chef.nazionalita}" /></div>
+    <div>
+            <div>inserisci informazioni dello chef:</div>
+        <div>chef nome:<input type="text" th:field="*{chef.nome}" /></div>
+        <div>chef cognome:<input type="text" th:field="*{chef.cognome}" /></div>
+        <div>chef nazionalita:<input type="text" th:field="*{chef.nazionalita}" /></div>
+    </div>
+
+    <div>aggiungi piatti:</div>
+    <ul>
+    <li th:each="piatto : ${piatti}">
+        <div> <a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"
+                 th:text="${piatto.nome} + ' ' + ${piatto.descrizione}"></a></div></li></ul>
 
 
     <div><button type="submit"/>Conferma</button></div>

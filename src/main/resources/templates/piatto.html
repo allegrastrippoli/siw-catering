@@ -14,6 +14,9 @@
     </div>
     <div> <a th:href="@{'/piattoDelete' + '/' + ${piatto.id}}">cancella piatto</a></div>
     <div> <a th:href="@{'/piattotModify' + '/' + ${piatto.id}}">modifica piatto</a></div>
+    <div>
+        <a th:href="@{/piattoList}">elenco piatti</a>
+    </div>
 </div>
 <footer><a href="/">Home</a></footer>
 </body>

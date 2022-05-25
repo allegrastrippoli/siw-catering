@@ -1,7 +1,6 @@
 package it.uniroma3.siw.siwcatering.controller;
 
 import it.uniroma3.siw.siwcatering.model.Chef;
-import it.uniroma3.siw.siwcatering.model.Buffet;
 import it.uniroma3.siw.siwcatering.service.BuffetService;
 import it.uniroma3.siw.siwcatering.service.ChefService;
 import it.uniroma3.siw.siwcatering.validator.ChefValidator;
@@ -41,7 +40,7 @@ public class ChefController {
 		
 		if(!bindingResult.hasErrors()) {
 			cs.save(chef);
-			model.addAttribute("chef", chef);
+			model.addAttribute("chef", this.cs.findById(chef.getId()));
 			return "chef.html";
 		}
 		return "chefForm.html";

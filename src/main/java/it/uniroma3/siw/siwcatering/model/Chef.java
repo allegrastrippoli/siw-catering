@@ -20,7 +20,6 @@ public class Chef {
 
 	@NotBlank
 	private String nome;
-	
 	@NotBlank
 	private String cognome;
 	@NotBlank

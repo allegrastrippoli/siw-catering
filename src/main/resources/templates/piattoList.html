@@ -9,9 +9,10 @@
     <li th:each="piatto : ${piatto}">
         <div> <a href="piatto.html"th:href="@{'/piatto' + '/' + ${piatto.id}}"
                  th:text="${piatto.nome} + ' ' + ${piatto.descrizione}"></a></div>
+
         <div> <a th:href="@{'/piattoDelete' + '/' + ${piatto.id}}">cancella piatto</a></div>
         <div> <a th:href="@{'/piattoModify' + '/' + ${piatto.id}}">modifica piatto</a></div>
-        <div> <a th:href="@{'/piattoVisualizeIngradienti' + '/' + ${piatto.id}}">visualizza piatti</a></div>
+        <div> <a th:href="@{'/piattoVisualizeIngradienti' + '/' + ${piatto.id}}">visualizza ingradienti</a></div>
     </li>
 </ul>
 </body>

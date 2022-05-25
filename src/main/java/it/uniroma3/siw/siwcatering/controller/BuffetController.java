@@ -2,7 +2,9 @@ package it.uniroma3.siw.siwcatering.controller;
 
 import it.uniroma3.siw.siwcatering.model.Buffet;
 import it.uniroma3.siw.siwcatering.model.Chef;
+import it.uniroma3.siw.siwcatering.model.Piatto;
 import it.uniroma3.siw.siwcatering.service.BuffetService;
+import it.uniroma3.siw.siwcatering.service.PiattoService;
 import it.uniroma3.siw.siwcatering.validator.BuffetValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,9 @@ public class BuffetController {
 	
 	@Autowired 
 	private BuffetService bs;
+
+	@Autowired
+	private PiattoService piattoService;
 	
 	@Autowired
 	private BuffetValidator bv;
@@ -42,6 +47,8 @@ public class BuffetController {
 
 	@GetMapping("/buffetForm")
 	public String getBuffet(Model model) {
+		List<Piatto> piatti = piattoService.findAll();
+		model.addAttribute("piatti", piatti);
 		model.addAttribute("buffet", new Buffet());
 		return "buffetForm.html";
 	}
