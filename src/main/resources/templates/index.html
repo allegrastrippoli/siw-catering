@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Demo</title>
+    <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 <div>
@@ -10,17 +11,23 @@
 
 
     <div>
-        <a th:href="@{/chefForm}">crea chef</a>
+        <div><a th:href="@{/chefForm}">crea chef</a></div>
+            <div><a th:href="@{/chefList}">lista chef</a></div>
     </div>
+    <hr>
     <div>
-        <a th:href="@{/buffetForm}">crea buffet</a>
+        <div><a th:href="@{/buffetForm}">crea buffet</a></div>
+            <div><a th:href="@{/buffetList}">lista buffet</a></div>
     </div>
+    <hr>
     <div>
-        <a th:href="@{/piattoForm}">crea piatto</a>
+        <div><a th:href="@{/piattoForm}">crea piatto</a></div>
+            <div><a th:href="@{/piattoList}">lista piatti</a></div>
     </div>
-
+    <hr>
     <div>
-        <a th:href="@{/ingradienteForm}">crea ingradiente</a>
+        <div><a th:href="@{/ingradienteForm}">crea ingradiente</a></div>
+            <div><a th:href="@{/ingradienteList}">lista ingradienti</a></div>
     </div>
 </div>
 </body>

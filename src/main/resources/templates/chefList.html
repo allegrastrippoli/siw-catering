@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Chef</title>
+    <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 <h4>Elenco chef</h4>
@@ -9,6 +10,11 @@
     <li th:each="chef : ${chef}">
         <div> <a href="chef.html"th:href="@{'/chef' + '/' + ${chef.id}}"
            				th:text="${chef.nome} + ' ' + ${chef.cognome}"></a></div>
+
+        <ul><li th:each="chef : ${chef.buffets}">
+           <a th:href="@{'/chef' + '/' + ${chef.id}}"
+              th:text="${chef.nome}"></a>
+        </li></ul>
 
         <div> <a th:href="@{'/chefDelete' + '/' + ${chef.id}}">cancella chef</a></div>
         <div> <a th:href="@{'/chefModify' + '/' + ${chef.id}}">modifica chef</a></div>
