@@ -10,6 +10,8 @@
     <div th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
     </div>
+
+    <div>Inserisci chef: </div>
     <div>
         nome: <input type="text" th:field="*{nome}" />
         <div th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></div>

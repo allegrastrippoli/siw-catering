@@ -8,9 +8,14 @@
 <div>
     <h4>Dettagli piatto</h4>
     <div>
-        <span th:text="${piatto.nome}"></span>
-        <span th:text="${piatto.descrizione}"></span>
 
+        <h4>Dettagli piatto: </h4>
+        <div><span> Nome: </span><span th:text="${piatto.nome}"></span></div>
+        <div><span> Descrizione: </span><span th:text="${piatto.descrizione}"></span></div>
+
+        <hr>
+
+        <h4>Dettagli ingradiente: </h4>
         <ul>
             <li th:each="ingradiente : ${piatto.ingradienti}">
                 <a th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
