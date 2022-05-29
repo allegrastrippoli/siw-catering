@@ -31,15 +31,7 @@ public class PiattoController {
     @Autowired
     private PiattoValidator piattoValidator;
 
-    @GetMapping("/addIngradientePiatto/{pid}/{iid}")
-    public String addIngradientePiatto(@PathVariable("pid") Long pid, @PathVariable("iid") Long iid, Model model) {
-        Piatto piatto = piattoService.findById(pid);
-        Ingradiente ingradiente = ingradienteService.findById(iid);
-        piatto.getIngradienti().add(ingradiente);
-        model.addAttribute("piatto", piatto);
-        model.addAttribute("ingradienti", ingradienteService.findAll());
-        return "index.html";
-    }
+
 
     @PostMapping("/piatto")
     public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, Model model, BindingResult bindingResult) {
@@ -49,15 +41,17 @@ public class PiattoController {
         if(!bindingResult.hasErrors()) {
             piattoService.save(piatto);
             model.addAttribute("piatto", piatto);
-            model.addAttribute("ingradienti",  ingradienteService.findAll());
+            model.addAttribute("ingradienti", piatto.getIngradienti());
             return "piatto.html";
         }
+        model.addAttribute("ingradienti", ingradienteService.findAll());
         return "piattoForm.html";
     }
 
     @GetMapping("/piattoForm")
-    public String getPiatto(Model model) {
+    public String getPiattoForm(Model model) {
         model.addAttribute("piatto", new Piatto());
+        model.addAttribute("ingradienti", ingradienteService.findAll());
         return "piattoForm.html";
     }
 
@@ -86,6 +80,12 @@ public class PiattoController {
         model.addAttribute("piatti", piatti);
         return "piattoList.html";
     }
-    
+
+    @GetMapping("/piatto/{id}")
+    public String getPiatto(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("piatto", piattoService.findById(id));
+        return "piatto.html";
+    }
+
 
 }

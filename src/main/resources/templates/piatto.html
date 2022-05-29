@@ -11,16 +11,14 @@
         <span th:text="${piatto.nome}"></span>
         <span th:text="${piatto.descrizione}"></span>
 
-    </div>
+        <ul>
+            <li th:each="ingradiente : ${piatto.ingradienti}">
+                <a th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
+                   th:text="${ingradiente.nome}"></a>
+            </li>
+        </ul>
 
-    <div>aggiungi ingradienti:</div>
-   <ul>
-   <li th:each="ingradiente : ${ingradienti}">
-       <div> <a href="ingradiente.html" th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
-                th:text="${ingradiente.nome} + ' ' + ${ingradiente.descrizione}"></a></div>
-       <div><a th:href="@{'/addIngradientePiatto' + '/' + ${piatto.id}  + '/' + ${ingradiente.id}}">aggiungi</a></div>
-   </li>
-   </ul>
+    </div>
 
 </div>
 <footer><a href="/">Home</a></footer>

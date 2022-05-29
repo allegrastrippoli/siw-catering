@@ -17,7 +17,7 @@ public class Piatto {
 	@NotBlank
 	String descrizione;
 	
-	@OneToMany(cascade = {CascadeType.PERSIST})
+	@ManyToMany(cascade = {CascadeType.PERSIST})
 	List<Ingradiente> ingradienti;
 
 

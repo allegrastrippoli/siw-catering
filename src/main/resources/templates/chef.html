@@ -12,9 +12,14 @@
         <span th:text="${chef.cognome}">Rossi</span>
         <span th:text="${chef.nazionalita}">28</span>
     </div>
-    <!--div>
-        <a th:href="@{/chefList}">elenco chef</a>
-    </div-->
+
+    <!--ul>
+        <li th:each="chef : ${chef.buffets}">
+            <a th:href="@{'/chef' + '/' + ${chef.id}}"
+               th:text="${chef.nome}"></a>
+        </li>
+    </ul-->
+
 </div>
 <footer>
     <a href="/">Home</a>

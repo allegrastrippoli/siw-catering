@@ -1,7 +1,9 @@
 package it.uniroma3.siw.siwcatering.controller;
 import it.uniroma3.siw.siwcatering.model.Buffet;
+import it.uniroma3.siw.siwcatering.model.Chef;
 import it.uniroma3.siw.siwcatering.model.Piatto;
 import it.uniroma3.siw.siwcatering.service.BuffetService;
+import it.uniroma3.siw.siwcatering.service.ChefService;
 import it.uniroma3.siw.siwcatering.service.PiattoService;
 import it.uniroma3.siw.siwcatering.validator.BuffetValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,45 +20,48 @@ import java.util.List;
 
 @Controller
 public class BuffetController {
-	
-	@Autowired 
-	private BuffetService bs;
+
+	@Autowired
+	private BuffetService buffetService;
+
+	@Autowired
+	private BuffetValidator buffetValidator;
 
 	@Autowired
 	private PiattoService piattoService;
-	
+
 	@Autowired
-	private BuffetValidator bv;
+	private ChefService chefservice;
+
 
 	@PostMapping("/buffet")
 	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, Model model, BindingResult bindingResult) {
 
-		bv.validate(buffet, bindingResult);
+		buffetValidator.validate(buffet, bindingResult);
 
 		if(!bindingResult.hasErrors()) {
-			bs.save(buffet);
+			buffetService.save(buffet);
 			model.addAttribute("buffet", buffet);
-			model.addAttribute("chef", buffet.getChef());
 			return "buffet.html";
 		}
+		List<Piatto> piatti = piattoService.findAll();
+		model.addAttribute("piatti", piatti);
+		model.addAttribute("chefs", chefservice.findAll());
 		return "buffetForm.html";
 	}
 
 	@GetMapping("/buffetForm")
-	public String getBuffet(Model model) {
-		/*
+	public String getBuffetForm(Model model) {
 		List<Piatto> piatti = piattoService.findAll();
 		model.addAttribute("piatti", piatti);
-		*/
+		model.addAttribute("chefs", chefservice.findAll());
 		model.addAttribute("buffet", new Buffet());
 		return "buffetForm.html";
 	}
 
 	@GetMapping("/buffetDelete/{id}")
 	public String deleteBuffet(@PathVariable("id") Long id, Model model) {
-
-		bs.deleteById(id);
-
+		buffetService.deleteById(id);
 		return "index.html";
 
 	}
@@ -64,15 +69,20 @@ public class BuffetController {
 
 	@GetMapping("/buffetModify/{id}")
 	public String modifyBuffet(@PathVariable("id") Long id, Model model) {
-		Buffet buffet = bs.findById(id);
+		Buffet buffet = buffetService.findById(id);
 		model.addAttribute("buffet", buffet);
 		return "buffetForm.html";
 	}
 
+	@GetMapping("/buffet/{id}")
+	public String getBuffet(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("buffet", buffetService.findById(id));
+		return "buffet.html";
+	}
 
 	@GetMapping("/buffetList")
 	public String getBuffetList( Model model) {
-		List<Buffet> buffet= bs.findAll();
+		List<Buffet> buffet= buffetService.findAll();
 		model.addAttribute("buffet", buffet);
 		return "buffetList.html";
 	}

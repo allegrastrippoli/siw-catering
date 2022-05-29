@@ -8,20 +8,8 @@
 <ul>
     <li th:each="piatto : ${piatti}">
 
-        <div> <a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"
+        <div> <a th:href="@{'/piatto' + '/' + ${piatto.id}}"
                  th:text="${piatto.nome} + ' ' + ${piatto.descrizione}"></a></div>
-
-        <!-- da correggere -->
-        
-        <!--ul>
-            <li th:each="ingradiente : ${piatto.ingradienti}" th:object="${ingradiente}">
-
-        <div> <a href="ingradiente.html" th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
-                 th:text="${ingradiente.nome} + ' ' + ${ingradiente.descrizione}"></a></div>
-
-            </li></ul-->
-
-    </li>
-</ul>
+    </li></ul>
 </body>
 </html>
