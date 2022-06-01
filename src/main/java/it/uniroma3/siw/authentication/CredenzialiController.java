@@ -1,4 +1,5 @@
 package it.uniroma3.siw.authentication;
+import it.uniroma3.siw.model.Ingradiente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -45,10 +46,15 @@ public class CredenzialiController {
         Credenziali credentials = credenzialiService.getCredenziali(adminDetails.getUsername());
         if (credentials.getRole().equals(Credenziali.ADMIN_ROLE)) {
             //return "redirect:/admin";
-            return "index.html";
+            return "adminindex.html";
         }
         //return "redirect:/login";
         return "index.html";
+    }
+
+    @GetMapping("/allindex")
+    public String getAllindex(Model model) {
+        return "allindex.html";
     }
 
 }
