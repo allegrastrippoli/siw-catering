@@ -49,7 +49,7 @@ public class BuffetController {
 		return "buffetForm.html";
 	}
 
-	@GetMapping("/buffetForm")
+	@GetMapping("/admin/buffetForm")
 	public String getBuffetForm(Model model) {
 		List<Piatto> piatti = piattoService.findAll();
 		model.addAttribute("piatti", piatti);

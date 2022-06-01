@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,7 +10,11 @@
 <div>
     <h4>Operazioni</h4>
 
+</div>
 
+    <div><span>if u already know the gang: </span><a th:href="@{/login}">login</a></div>
+    <div><span>if u wanna join the gang: </span><a th:href="@{/register}">registrati</a></div>
+    <hr>
     <div>
         <div><a th:href="@{/chefForm}">crea chef</a></div>
             <div><a th:href="@{/chefList}">lista chef</a></div>

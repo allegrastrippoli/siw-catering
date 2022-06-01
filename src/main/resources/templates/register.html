@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
+</head>
+<header>
+    <h4>Registrazione</h4>
+</header>
+<body>
+
+<div>
+
+    <form method="POST" th:action="@{/register}" th:object="${credenziali}">
+        <div class="error-text" th:if="${#fields.hasGlobalErrors()}">
+            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">this will contain
+                errors
+            </p>
+        </div>
+
+        <div>
+
+            <div><input name="username" th:field="*{username}" type="text"  placeholder="username" required/></div>
+            <div><input name="nome" th:field="*{user.nome}" type="text"  placeholder="nome" required/></div>
+            <div><input name="cognome" th:field="*{user.cognome}" type="text"  placeholder="cognome" required/></div>
+            <div><input name="email" th:field="*{user.email}" type="email"  placeholder="email" required/></div>
+            <div><input name="ruolo" th:field="*{role}" type="text"  placeholder="ruolo" required/></div>
+            <div><input name="password" th:field="*{password}" type="password"  placeholder="password" required/></div>
+        </div>
+
+
+        <div><button type="submit"/>Conferma</div>
+
+    </form>
+
+</div>
+</body>
+</html>
