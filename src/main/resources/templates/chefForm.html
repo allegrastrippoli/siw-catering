@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-<!--/*@thymesVar id="chef" type="it.uniroma3.siw.siwcatering.model.Chef"*/-->
+<!--/*@thymesVar id="chef" type="it.uniroma3.siw.model.Chef"*/-->
 <form th:action="@{/chef}" method="post" th:object="${chef}">
     <div th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
