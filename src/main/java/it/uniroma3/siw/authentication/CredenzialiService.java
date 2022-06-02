@@ -32,7 +32,7 @@ public class CredenzialiService {
     @Transactional
     public Credenziali saveCredenziali(Credenziali credenziali) {
         // per creare admin bisogna commentare questa riga
-        credenziali.setRole(Credenziali.DEFAULT_ROLE);
+        //credenziali.setRole(Credenziali.DEFAULT_ROLE);
         credenziali.setPassword(this.passwordEncoder.encode(credenziali.getPassword()));
         return this.credenzialiRepository.save(credenziali);
     }

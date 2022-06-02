@@ -11,8 +11,8 @@
         <div> <a href="chef.html"th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
                  th:text="${ingradiente.nome} + ' ' + ${ingradiente.origine}+ ' ' + ${ingradiente.descrizione}"></a></div>
 
-        <div> <a th:href="@{'/ingradienteDelete' + '/' + ${ingradiente.id}}">cancella ingradiente</a></div>
-        <div> <a th:href="@{'/ingradienteModify' + '/' + ${ingradiente.id}}">modifica ingradiente</a></div>
+        <div> <a th:href="@{'/admin/ingradienteDelete' + '/' + ${ingradiente.id}}">cancella ingradiente</a></div>
+        <div> <a th:href="@{'/admin/ingradienteModify' + '/' + ${ingradiente.id}}">modifica ingradiente</a></div>
 
     </li>
 </ul>

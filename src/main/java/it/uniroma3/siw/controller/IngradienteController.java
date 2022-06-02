@@ -24,14 +24,14 @@ public class IngradienteController {
 	@Autowired
 	private IngradienteValidator ingradienteValidator;
 
-	@GetMapping("/ingradienteForm")
+	@GetMapping("/admin/ingradienteForm")
 	public String getIngradienteForm(Model model) {
 		model.addAttribute("ingradiente", new Ingradiente());
 		return "ingradienteForm.html";
 	}
 
 
-	@PostMapping("/ingradiente")
+	@PostMapping("/admin/ingradiente")
 	public String addIngradiente(@Valid @ModelAttribute("ingradiente") Ingradiente ingradiente, Model model, BindingResult bindingResults) {
 
 		ingradienteValidator.validate(ingradiente, bindingResults);
@@ -46,13 +46,13 @@ public class IngradienteController {
 	}
 
 
-	@GetMapping("/ingradienteDelete/{id}")
+	@GetMapping("/admin/ingradienteDelete/{id}")
 	public String deleteIngradiente(@PathVariable("id") Long id, Model model) {
 		ingradienteService.deleteById(id);
 		return "index.html";
 	}
 
-	@GetMapping("/ingradienteModify/{id}")
+	@GetMapping("/admin/ingradienteModify/{id}")
 	public String modifyIngradiente(@PathVariable("id") Long id, Model model) {
 		Ingradiente ingradiente = ingradienteService.findById(id);
 		model.addAttribute("ingradiente", ingradiente);

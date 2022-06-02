@@ -49,12 +49,17 @@ public class CredenzialiController {
             return "adminindex.html";
         }
         //return "redirect:/login";
-        return "index.html";
+        return "allindex.html";
     }
 
     @GetMapping("/allindex")
     public String getAllindex(Model model) {
         return "allindex.html";
+    }
+
+    @GetMapping("/adminindex")
+    public String getAdminindex(Model model) {
+        return "adminindex.html";
     }
 
 }

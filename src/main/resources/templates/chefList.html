@@ -16,8 +16,8 @@
               th:text="${chef.nome}"></a>
         </li></ul>
 
-        <div> <a th:href="@{'/chefDelete' + '/' + ${chef.id}}">cancella chef</a></div>
-        <div> <a th:href="@{'/chefModify' + '/' + ${chef.id}}">modifica chef</a></div>
+        <div> <a th:href="@{'/admin/chefDelete' + '/' + ${chef.id}}">cancella chef</a></div>
+        <div> <a th:href="@{'/admin/chefEdit' + '/' + ${chef.id}}">modifica chef</a></div>
 
     </li>
 </ul>

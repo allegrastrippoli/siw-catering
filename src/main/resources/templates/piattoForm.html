@@ -7,7 +7,7 @@
 </head>
 <body>
 <!--/*@thymesVar id="piatto" type="it.uniroma3.siw.model.Piatto"*/-->
-<form th:action="@{/piatto}" method="post" th:object="${piatto}">
+<form th:action="@{/admin/piatto}" method="post" th:object="${piatto}">
 
     <div>Inserisci piatto: </div>
     <div>nome:<input type="text" th:field="*{nome}" /></div>

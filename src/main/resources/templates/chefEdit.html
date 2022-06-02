@@ -7,22 +7,22 @@
 </head>
 <body>
 <!--/*@thymesVar id="chef" type="it.uniroma3.siw.model.Chef"*/-->
-<form th:action="@{/admin/chef}" method="post" th:object="${chef}">
+<form th:action="@{/admin/chefEdited/{id}(id=${chef.id})}" method="post" th:object="${chef}">
     <div th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
     </div>
 
     <div>Inserisci chef: </div>
     <div>
-        nome: <input type="text" th:field="*{nome}" />
+        nome: <input type="text" th:field="*{nome}" th:value="*{nome}" />
         <div th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></div>
     </div>
     <div>
-        cognome: <input type="text" th:field="*{cognome}" />
+        cognome: <input type="text" th:field="*{cognome}" th:value="*{cognome}"/>
         <div th:errors="*{cognome}" th:if="${#fields.hasErrors('cognome')}"></div>
     </div>
     <div>
-        nazionalita: <input type="text" th:field="*{nazionalita}" />
+        nazionalita: <input type="text" th:field="*{nazionalita}" th:value="*{nazionalita}"/>
         <div th:errors="*{nazionalita}" th:if="${#fields.hasErrors('nazionalita')}"></div>
     </div>
     <div><button type="submit"/>Conferma</div>

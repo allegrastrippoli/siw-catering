@@ -11,8 +11,8 @@
         <div> <a href="buffet.html"th:href="@{'/chef' + '/' + ${buffet.id}}"
                  th:text="${buffet.nome} + ' ' + ${buffet.descrizione}"></a></div>
 
-        <div> <a th:href="@{'/buffetDelete' + '/' + ${buffet.id}}">cancella buffet</a></div>
-        <div> <a th:href="@{'/buffetModify' + '/' + ${buffet.id}}">modifica buffet</a></div>
+        <div> <a th:href="@{'/admin/buffetDelete' + '/' + ${buffet.id}}">cancella buffet</a></div>
+        <div> <a th:href="@{'/admin/buffetModify' + '/' + ${buffet.id}}">modifica buffet</a></div>
 
     </li>
 </ul>

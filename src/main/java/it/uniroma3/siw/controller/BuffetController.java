@@ -33,7 +33,7 @@ public class BuffetController {
 	private ChefService chefservice;
 
 
-	@PostMapping("/buffet")
+	@PostMapping("/admin/buffet")
 	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, Model model, BindingResult bindingResult) {
 
 		buffetValidator.validate(buffet, bindingResult);
@@ -49,7 +49,7 @@ public class BuffetController {
 		return "buffetForm.html";
 	}
 
-	@GetMapping("/buffetForm")
+	@GetMapping("/admin/buffetForm")
 	public String getBuffetForm(Model model) {
 		List<Piatto> piatti = piattoService.findAll();
 		model.addAttribute("piatti", piatti);
@@ -58,7 +58,7 @@ public class BuffetController {
 		return "buffetForm.html";
 	}
 
-	@GetMapping("/buffetDelete/{id}")
+	@GetMapping("/admin/buffetDelete/{id}")
 	public String deleteBuffet(@PathVariable("id") Long id, Model model) {
 		buffetService.deleteById(id);
 		return "index.html";
@@ -66,7 +66,7 @@ public class BuffetController {
 	}
 
 
-	@GetMapping("/buffetModify/{id}")
+	@GetMapping("/admin/buffetModify/{id}")
 	public String modifyBuffet(@PathVariable("id") Long id, Model model) {
 		Buffet buffet = buffetService.findById(id);
 		model.addAttribute("buffet", buffet);

@@ -6,7 +6,7 @@
     <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
 </head>
 <body>
-<form th:action="@{/ingradiente}" method="post" th:object="${ingradiente}">
+<form th:action="@{/admin/ingradiente}" method="post" th:object="${ingradiente}">
 
     <div>Inserisci ingradiente: </div>
     <div>nome:<input type="text" th:field="*{nome}" /></div>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class ChefController {
 	 *POST per scrittura */
 
 
-	@PostMapping("/chef")
+	@PostMapping("/admin/chef")
 	public String addChef(@Valid @ModelAttribute("chef") Chef chef, Model model, BindingResult bindingResult) {
 
 		chefValidator.validate(chef, bindingResult);
@@ -42,25 +43,44 @@ public class ChefController {
 		return "chefForm.html";
 	}
 
-	@GetMapping("/chefForm")
+	@GetMapping("/admin/chefForm")
 	public String getChefForm(Model model) {
 		model.addAttribute("chef", new Chef());
 		return "chefForm.html";
 	}
 
-	@GetMapping("/chefDelete/{id}")
+	@GetMapping("/admin/chefDelete/{id}")
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
 		chefService.deleteById(id);
 		return "index.html";
 
 	}
 
+		@Transactional
+	@PostMapping("/admin/chefEdited/{id}")
+	public String editChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
 
-	@GetMapping("/chefModify/{id}")
-	public String modifyChef(@PathVariable("id") Long id, Model model) {
+		if(!bindingResults.hasErrors()) {
+			Chef oldChef = chefService.findById(id);
+			oldChef.setId(chef.getId());
+			oldChef.setNome(chef.getNome());
+			oldChef.setNome(chef.getCognome());
+			oldChef.setNazionalita(chef.getNazionalita());
+
+			this.chefService.save(oldChef);
+			model.addAttribute("chef", chef);
+			return "chef.html";
+		}
+			return "chefEdit.html";
+
+	}
+
+
+	@GetMapping("/admin/chefEdit/{id}")
+	public String editChef(@PathVariable("id") Long id, Model model) {
 		Chef chef = chefService.findById(id);
 		model.addAttribute("chef", chef);
-		return "chefForm.html";
+		return "chefEdit.html";
 	}
 
 	@GetMapping("/chef/{id}")
