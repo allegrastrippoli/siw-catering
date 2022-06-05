@@ -17,10 +17,10 @@ public class Buffet {
 	@NotBlank
 	String descrizione;
 
-	@OneToMany(cascade = {CascadeType.PERSIST})
+	@OneToMany
 	List<Piatto> piatti;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST})
+	@ManyToOne
 	Chef chef;
 
 	public Long getId() {

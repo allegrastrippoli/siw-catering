@@ -2,7 +2,9 @@ package it.uniroma3.siw.controller;
 
 import it.uniroma3.siw.model.Chef;
 import it.uniroma3.siw.model.Ingradiente;
+import it.uniroma3.siw.model.Piatto;
 import it.uniroma3.siw.service.IngradienteService;
+import it.uniroma3.siw.service.PiattoService;
 import it.uniroma3.siw.validator.IngradienteValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,9 @@ public class IngradienteController {
 
 	@Autowired
 	private IngradienteValidator ingradienteValidator;
+
+	@Autowired
+	private PiattoService piattoService;
 
 	@GetMapping("/admin/ingradienteForm")
 	public String getIngradienteForm(Model model) {
@@ -50,6 +55,15 @@ public class IngradienteController {
 
 	@GetMapping("/admin/ingradienteDelete/{id}")
 	public String deleteIngradiente(@PathVariable("id") Long id, Model model) {
+
+		Ingradiente ingradiente = ingradienteService.findById(id);
+		List<Piatto> piatti = piattoService.findAll();
+		for(Piatto p : piatti) {
+			if(p.getIngradienti().contains(ingradiente)) {
+				p.getIngradienti().remove(ingradiente);
+				piattoService.save(p);
+			}
+		}
 		ingradienteService.deleteById(id);
 		return "adminindex.html";
 	}

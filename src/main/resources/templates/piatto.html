@@ -18,12 +18,11 @@
         <hr>
 
         <h4>Dettagli ingradiente: </h4>
-        <ul>
-            <li th:each="ingradiente : ${piatto.ingradienti}">
+
+            <div th:each="ingradiente : ${piatto.ingradienti}">
                 <a th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
                    th:text="${ingradiente.nome}"></a>
-            </li>
-        </ul>
+            </div>
 
     </div>
 

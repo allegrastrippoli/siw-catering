@@ -20,9 +20,13 @@
         ></a>
       </div>
 
-      <div th:each="chef : ${chef.buffets}">
-        <a th:href="@{'/chef' + '/' + ${chef.id}}" th:text="${chef.nome}"></a>
+      <hr>
+
+      <div th:each="buffet : ${chef.buffets}">
+        <a th:href="@{'/buffet' + '/' + ${buffet.id}}" th:text="${buffet.nome}"></a>
       </div>
+
+      <hr>
 
       <div>
         <a th:href="@{'/admin/chefDelete' + '/' + ${chef.id}}">cancella chef</a>

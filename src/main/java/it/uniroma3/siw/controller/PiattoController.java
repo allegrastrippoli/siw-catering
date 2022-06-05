@@ -1,6 +1,9 @@
 package it.uniroma3.siw.controller;
 
+import it.uniroma3.siw.model.Buffet;
+import it.uniroma3.siw.model.Ingradiente;
 import it.uniroma3.siw.model.Piatto;
+import it.uniroma3.siw.service.BuffetService;
 import it.uniroma3.siw.service.IngradienteService;
 import it.uniroma3.siw.service.PiattoService;
 import it.uniroma3.siw.validator.PiattoValidator;
@@ -29,7 +32,8 @@ public class PiattoController {
     @Autowired
     private PiattoValidator piattoValidator;
 
-
+    @Autowired
+    private BuffetService buffetService;
 
     @PostMapping("/admin/piatto")
     public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, Model model, BindingResult bindingResult) {
@@ -56,6 +60,15 @@ public class PiattoController {
 
     @GetMapping("/admin/piattoDelete/{id}")
     public String deletePiatto(@PathVariable("id") Long id, Model model) {
+
+        Piatto piatto = piattoService.findById(id);
+        List<Buffet> buffets = buffetService.findAll();
+        for(Buffet b : buffets) {
+            if(b.getPiatti().contains(piatto)) {
+                b.getPiatti().remove(piatto);
+                buffetService.save(b);
+            }
+        }
         piattoService.deleteById(id);
         return "adminindex.html";
     }

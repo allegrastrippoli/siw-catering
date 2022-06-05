@@ -26,12 +26,11 @@
     <hr>
 
     <div>Dettagli piatti: </div>
-    <ul>
-        <li th:each="piatto : ${buffet.piatti}">
+
+        <div th:each="piatto : ${buffet.piatti}">
             <a th:href="@{'/piatto' + '/' + ${piatto.id}}"
                th:text="${piatto.nome}"></a>
-        </li>
-    </ul>
+        </div>
 
 </div>
 <footer><a  th:href="@{/allindex}" href="/allindex.html">User's home</a></footer>

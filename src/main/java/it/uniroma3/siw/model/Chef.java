@@ -25,7 +25,7 @@ public class Chef {
 	@NotBlank
 	private String nazionalita;
 
-	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy = "chef")
+	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "chef")
 	List<Buffet> buffets;
 
 	public List<Buffet> getBuffets() {
