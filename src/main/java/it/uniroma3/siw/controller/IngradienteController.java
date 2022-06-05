@@ -1,5 +1,6 @@
 package it.uniroma3.siw.controller;
 
+import it.uniroma3.siw.model.Chef;
 import it.uniroma3.siw.model.Ingradiente;
 import it.uniroma3.siw.service.IngradienteService;
 import it.uniroma3.siw.validator.IngradienteValidator;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -49,14 +51,32 @@ public class IngradienteController {
 	@GetMapping("/admin/ingradienteDelete/{id}")
 	public String deleteIngradiente(@PathVariable("id") Long id, Model model) {
 		ingradienteService.deleteById(id);
-		return "index.html";
+		return "adminindex.html";
 	}
 
-	@GetMapping("/admin/ingradienteModify/{id}")
-	public String modifyIngradiente(@PathVariable("id") Long id, Model model) {
+	@Transactional
+	@PostMapping("/admin/ingradienteEdited/{id}")
+	public String editedIngradiente(@PathVariable Long id, @Valid @ModelAttribute("ingradiente") Ingradiente ingradiente, Model model, BindingResult bindingResult) {
+
+		if(!bindingResult.hasErrors()) {
+		Ingradiente oldIngradiente = ingradienteService.findById(id);
+
+		oldIngradiente.setNome(ingradiente.getNome());
+		oldIngradiente.setOrigine(ingradiente.getOrigine());
+		oldIngradiente.setDescrizione(ingradiente.getDescrizione());
+
+		ingradienteService.save(oldIngradiente);
+		model.addAttribute("ingradiente", ingradiente);
+		return "ingradiente.html";
+		}
+		return "ingradienteEdit.html";
+	}
+
+	@GetMapping("/admin/ingradienteEdit/{id}")
+	public String editIngradiente(@PathVariable("id") Long id, Model model) {
 		Ingradiente ingradiente = ingradienteService.findById(id);
 		model.addAttribute("ingradiente", ingradiente);
-		return "ingradienteForm.html";
+		return "ingradienteEdit.html";
 	}
 
 	@GetMapping("/ingradienteList")

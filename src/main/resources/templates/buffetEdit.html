@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>inserimento chef</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
+</head>
+<body>
+<!--/*@thymesVar id="chef" type="it.uniroma3.siw.model.Chef"*/-->
+<!--/*@thymesVar id="buffet" type="it.uniroma3.siw.model.Buffet"*/-->
+<!--/*@thymesVar id="piatto" type="it.uniroma3.siw.model.Piatto"*/-->
+<form th:action="@{/admin/buffetEdited/{id}(id=${buffet.id})}" method="post" th:object="${buffet}">
+    <div th:if="${#fields.hasGlobalErrors()}">
+        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
+    </div>
+
+    <div>Inserisci buffet: </div>
+    <div>
+        nome: <input type="text" th:field="*{nome}" th:value="*{nome}" />
+        <div th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></div>
+    </div>
+    <div>
+        descrizione: <input type="text" th:field="*{descrizione}" th:value="*{descrizione}"/>
+        <div th:errors="*{descrizione}" th:if="${#fields.hasErrors('descrizione')}"></div>
+    </div>
+    <div>
+
+        <div>Seleziona chef:
+            <select th:field="*{chef}">
+                <option value=""></option>
+                <option th:each="chef : ${chefList}"
+                        th:value="${chef.id}"
+                        th:text="${chef.nome}">
+                </option>
+            </select>
+        </div>
+    </div>
+
+
+    <div>
+        <fieldset>
+            <legend>Seleziona piatti: </legend>
+            <div th:each="piatto: ${piattoList}">
+                <input type="checkbox" id="${piatti}" th:field="*{piatti}" name="piatto" th:value="${piatto.id}" >
+                <label for="${piatti}" th:text="${piatto.nome}">Nome piatto</label>
+            </div>
+        </fieldset>
+    </div>
+
+    <div><button type="submit"/>Conferma</div>
+</form>
+</body>
+</html>

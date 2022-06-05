@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -55,19 +56,37 @@ public class PiattoController {
 
     @GetMapping("/admin/piattoDelete/{id}")
     public String deletePiatto(@PathVariable("id") Long id, Model model) {
-
         piattoService.deleteById(id);
-
-        return "index.html";
-
+        return "adminindex.html";
     }
 
 
-    @GetMapping("/admin/piattoModify/{id}")
-    public String modifyPiatto(@PathVariable("id") Long id, Model model) {
+    @Transactional
+    @PostMapping("/admin/piattoEdited/{id}")
+    public String editedPiatto(@PathVariable("id") Long id, @Valid @ModelAttribute Piatto piatto, Model model, BindingResult bindingResult) {
+
+        if(!bindingResult.hasErrors()) {
+
+            Piatto oldPiatto = piattoService.findById(id);
+            oldPiatto.setNome(oldPiatto.getNome());
+            oldPiatto.setDescrizione(oldPiatto.getDescrizione());
+            oldPiatto.setIngradienti(oldPiatto.getIngradienti());
+
+            piattoService.save(piatto);
+            model.addAttribute("piatto", piatto);
+
+            return "piatto.html";
+        }
+        return "piattoEdit.html";
+    }
+
+
+    @GetMapping("/admin/piattoEdit/{id}")
+    public String editPiatto(@PathVariable("id") Long id, Model model) {
         Piatto piatto = piattoService.findById(id);
         model.addAttribute("piatto", piatto);
-        return "piattoForm.html";
+        model.addAttribute("ingradienti", ingradienteService.findAll());
+        return "piattoEdit.html";
     }
 
 

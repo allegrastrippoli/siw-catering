@@ -6,11 +6,19 @@
 </head>
 <body>
 <h4>Elenco piatti</h4>
-<ul>
-    <li th:each="piatto : ${piatti}">
+
+    <div th:each="piatto : ${piatti}">
 
         <div> <a th:href="@{'/piatto' + '/' + ${piatto.id}}"
-                 th:text="${piatto.nome} + ' ' + ${piatto.descrizione}"></a></div>
-    </li></ul>
+                 th:text="${piatto.nome}"></a></div>
+                 <div th:text="${piatto.descrizione}" ></div>
+
+        <div> <a th:href="@{'/admin/piattoDelete' + '/' + ${piatto.id}}">cancella piatto</a></div>
+        <div> <a th:href="@{'/admin/piattoEdit' + '/' + ${piatto.id}}">modifica piatto</a></div>
+
+        <hr>
+    </div>
+
+
 </body>
 </html>

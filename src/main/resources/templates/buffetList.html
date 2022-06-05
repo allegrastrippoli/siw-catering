@@ -6,15 +6,19 @@
 </head>
 <body>
 <h4>Elenco buffet</h4>
-<ul>
-    <li th:each="buffet : ${buffet}">
+
+    <div th:each="buffet : ${buffet}">
         <div> <a href="buffet.html"th:href="@{'/chef' + '/' + ${buffet.id}}"
-                 th:text="${buffet.nome} + ' ' + ${buffet.descrizione}"></a></div>
+                 th:text="${buffet.nome}"></a></div>
+            <div th:text="${buffet.descrizione}"></div>
 
         <div> <a th:href="@{'/admin/buffetDelete' + '/' + ${buffet.id}}">cancella buffet</a></div>
-        <div> <a th:href="@{'/admin/buffetModify' + '/' + ${buffet.id}}">modifica buffet</a></div>
+        <div> <a th:href="@{'/admin/buffetEdit' + '/' + ${buffet.id}}">modifica buffet</a></div>
 
-    </li>
-</ul>
+        <hr>
+    </div>
+
+
+
 </body>
 </html>

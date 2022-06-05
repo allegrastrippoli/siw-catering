@@ -52,19 +52,19 @@ public class ChefController {
 	@GetMapping("/admin/chefDelete/{id}")
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
 		chefService.deleteById(id);
-		return "index.html";
+		return "adminindex.html";
 
 	}
 
 		@Transactional
 	@PostMapping("/admin/chefEdited/{id}")
-	public String editChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
+	public String editedChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
 
 		if(!bindingResults.hasErrors()) {
 			Chef oldChef = chefService.findById(id);
 			oldChef.setId(chef.getId());
 			oldChef.setNome(chef.getNome());
-			oldChef.setNome(chef.getCognome());
+			oldChef.setCognome(chef.getCognome());
 			oldChef.setNazionalita(chef.getNazionalita());
 
 			this.chefService.save(oldChef);
