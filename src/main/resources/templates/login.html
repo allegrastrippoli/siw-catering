@@ -1,29 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
-      xmlns:sec="http://www.w3.org/1999/xhtml">
-
-<head>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns="http://www.w3.org/1999/html"
+  xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+  <head>
     <title>login</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
-</head>
-<header>
-    <h4>Login</h4>
-</header>
+    <link
+      th:href="@{/css/login.css}"
+      rel="stylesheet"
+      href="../../static/css/login.css"
+    />
+  </head>
 
-<body>
-<div>
-
+  <body id="grad">
     <div>
-        <form th:action="@{/login}" method="POST">
+      <div class="login-box">
+        <h2>Login</h2>
+        <div>
+          <form th:action="@{/login}" method="POST">
+            <div class="user-box">
+              <div>
+                <input
+                  name="username"
+                  type="text"
+                  placeholder="username"
+                  required
+                />
+              </div>
+            </div>
+            <div class="user-box">
+              <div>
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="password"
+                  required
+                />
+              </div>
+            </div>
 
-                        <div><input name="username" type="text" placeholder="username" required /></div>
-                        <div><input name="password" type="password" placeholder="password" required /></div>
-
-
-            <div><button type="submit"/>Conferma</div>
-        </form>
+            <div><button class="button" type="submit" />Conferma</div>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
-
-</body>
+  </body>
 </html>

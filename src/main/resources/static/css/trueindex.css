@@ -1,48 +1,27 @@
 body {
-    background-color: #f0f1f7;
     font-family: Avenir;
     color: #091db8;
     margin: 20px 50px 10px 50px
 }
 
-h2 {
+.this-box {
+
     text-align: center;
-}
-
-a {
-    color: black;
-}
-
-.title-settings {
-    font-weight: bold;
-}
-
-.child-flex {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
     border-radius: 10px;
-    padding: 20px;
+
+}
+
+#grid {
     background:   #bcc4f7; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(left, #bcc4f7 , #f0f1f7); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(right,  #bcc4f7, #f0f1f7); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(right, #bcc4f7,#f0f1f7); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to right, #bcc4f7, #f0f1f7); /* Standard syntax */
-}
-
-
-.basic-flex {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    gap: 2rem; 
-
-}
-
-.basic-flex > * {
-    flex: 1;
-}
-
-.link-settings {
-    margin-top: 10px;
-    font-size: 70%
 }
 

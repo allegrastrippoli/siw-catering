@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <title>Buffet</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
-</head>
-<body>
-<h4>Elenco buffet</h4>
+    <link
+      th:href="@{/css/index.css}"
+      rel="stylesheet"
+      href="../../static/css/index.css"
+    />
+  </head>
+  <body>
+    <h2>Buffet</h2>
 
-    <div th:each="buffet : ${buffet}">
-        <div> <a href="buffet.html"th:href="@{'/chef' + '/' + ${buffet.id}}"
-                 th:text="${buffet.nome}"></a></div>
-            <div th:text="${buffet.descrizione}"></div>
+    <div class="basic-flex">
+      <div th:each="buffet : ${buffet}">
+        <div class="child-flex">
+        <div class="title-settings"
+            th:text="${buffet.nome}"
+          >
+        </div>
+        <div th:text="${buffet.descrizione}"></div>
 
-        <div> <a th:href="@{'/admin/buffetDelete' + '/' + ${buffet.id}}">cancella buffet</a></div>
-        <div> <a th:href="@{'/admin/buffetEdit' + '/' + ${buffet.id}}">modifica buffet</a></div>
+        <div  class="link-settings">
+          <div>
+          <a th:href="@{'/admin/buffetDelete' + '/' + ${buffet.id}}"
+            >cancella buffet</a
+          >
+        </div>
+        <div>
+          <a th:href="@{'/admin/buffetEdit' + '/' + ${buffet.id}}"
+            >modifica buffet</a
+          >
+        </div>
+        </div>
+</div>
 
-        <hr>
+      </div>
     </div>
-
-
-
-</body>
+  </body>
 </html>

@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <title>Ingradiente</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
-</head>
-<body>
-<h4>Elenco ingradienti</h4>
+    <link
+      th:href="@{/css/index.css}"
+      rel="stylesheet"
+      href="../../static/css/index.css"
+    />
+  </head>
+  <body>
+    <h2>Ingradienti</h2>
 
-    <div th:each="ingradiente : ${ingradienti}">
-        <div> <a href="chef.html"th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
-                 th:text="${ingradiente.nome}"></a></div>
-        <div th:text="${ingradiente.origine}"></div>
-        <div th:text="${ingradiente.descrizione}"></div>
+    <div class="basic-flex">
+        <div th:each="ingradiente : ${ingradienti}">
+                <div class="child-flex">
 
-        <div> <a th:href="@{'/admin/ingradienteDelete' + '/' + ${ingradiente.id}}">cancella ingradiente</a></div>
-        <div> <a th:href="@{'/admin/ingradienteEdit' + '/' + ${ingradiente.id}}">modifica ingradiente</a></div>
+                      <div class="title-settings" th:text="${ingradiente.nome}"> </div>
+                      <div><span>from: </span><span th:text="${ingradiente.origine}"></span></div>
+                      <div th:text="${ingradiente.descrizione}"></div>
 
-        <hr>
+                      <div class="link-settings">
+                      <div>
+                        <a th:href="@{'/admin/ingradienteDelete' + '/' + ${ingradiente.id}}"
+                          >cancella ingradiente</a>
+                      </div>
+                      <div>
+                        <a th:href="@{'/admin/ingradienteEdit' + '/' + ${ingradiente.id}}"
+                          >modifica ingradiente</a>
+                      </div>
+                </div>
+        </div>
     </div>
-
-</body>
+  </body>
 </html>

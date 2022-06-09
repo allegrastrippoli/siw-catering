@@ -1,0 +1,82 @@
+body {
+    font-family: Avenir;
+    color: #091db8;
+    margin: 20px 50px 10px 50px;
+    text-align: center;
+}
+
+#grad {
+    background:  #bcc4f7; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #f0f1f7 , #bcc4f7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right,  #f0f1f7, #bcc4f7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #f0f1f7,#bcc4f7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right,  #f0f1f7, #bcc4f7); /* Standard syntax */
+}
+
+
+/*
+  .login-box {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: white;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+
+*/
+  .login-box {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+
+
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #091db8;
+    text-align: center;
+}
+
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #091db8;
+    outline: none;
+    background: transparent;
+}
+
+.button {
+    background-color: #091db8;
+    border-radius: 1000px;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 80%;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+
+
+
