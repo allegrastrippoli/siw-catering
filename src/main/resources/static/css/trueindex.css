@@ -17,7 +17,7 @@ body {
 
 }
 
-#grid {
+#grad {
     background:   #bcc4f7; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(left, #bcc4f7 , #f0f1f7); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(right,  #bcc4f7, #f0f1f7); /* For Opera 11.1 to 12.0 */
