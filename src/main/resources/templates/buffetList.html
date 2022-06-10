@@ -17,6 +17,9 @@
 
           <div class="link-settings">
             <div>
+              <a th:href="@{'/buffet' + '/' + ${buffet.id}}">dettagli buffet</a>
+            </div>
+            <div>
               <a th:href="@{'/admin/buffetDelete' + '/' + ${buffet.id}}"
                 >cancella buffet</a
               >

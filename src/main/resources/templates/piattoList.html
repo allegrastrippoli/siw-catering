@@ -17,9 +17,10 @@
 
           <div class="link-settings">
             <div>
-              <a th:href="@{'/admin/piattoDelete' + '/' + ${piatto.id}}"
-                >cancella piatto</a
-              >
+              <a th:href="@{'/piatto' + '/' + ${piatto.id}}">dettagli piatto</a>
+            </div>
+            <div>
+              <a th:href="@{'/admin/piattoDelete' + '/' + ${piatto.id}}">cancella piatto</a>
             </div>
             <div>
               <a th:href="@{'/admin/piattoEdit' + '/' + ${piatto.id}}"

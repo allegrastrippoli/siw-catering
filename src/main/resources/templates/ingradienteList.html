@@ -19,6 +19,9 @@
                       <div th:text="${ingradiente.descrizione}"></div>
 
                       <div class="link-settings">
+                          <div>
+                              <a th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}">dettagli ingradiente</a>
+                          </div>
                       <div>
                         <a th:href="@{'/admin/ingradienteDelete' + '/' + ${ingradiente.id}}"
                           >cancella ingradiente</a>

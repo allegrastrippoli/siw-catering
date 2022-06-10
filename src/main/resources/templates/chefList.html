@@ -17,6 +17,9 @@
       <div th:text="${chef.nazionalita}"> </div>
 
       <div class="link-settings">
+        <div>
+          <a th:href="@{'/chef' + '/' + ${chef.id}}">dettagli chef</a>
+        </div>
       <div>
         <a th:href="@{'/admin/chefDelete' + '/' + ${chef.id}}">cancella chef</a>
       </div>
