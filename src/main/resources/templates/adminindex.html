@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <title>Demo</title>
-    <link th:href="@{/css/trueindex.css}" rel="stylesheet" href="../../static/css/trueindex.css">
+    <link th:href="@{/css/adminall.css}" rel="stylesheet" href="../../static/css/adminall.css">
 </head>
-<body id="grad">
+<body>
 
 <div class="this-box">
 <div>
@@ -14,22 +14,19 @@
 
 </div>
 
-<div>
+<div  class="grad">
     <div><a th:href="@{/admin/chefForm}">crea chef</a></div>
     <div><a th:href="@{/chefList}">lista chef</a></div>
 </div>
-<hr>
-<div>
+<div  class="grad">
     <div><a th:href="@{/admin/buffetForm}">crea buffet</a></div>
     <div><a th:href="@{/buffetList}">lista buffet</a></div>
 </div>
-<hr>
-<div>
+<div  class="grad">
     <div><a th:href="@{/admin/piattoForm}">crea piatto</a></div>
     <div><a th:href="@{/piattoList}">lista piatti</a></div>
 </div>
-<hr>
-<div>
+<div class="grad">
     <div><a th:href="@{/admin/ingradienteForm}">crea ingradiente</a></div>
     <div><a th:href="@{/ingradienteList}">lista ingradienti</a></div>
 </div>
