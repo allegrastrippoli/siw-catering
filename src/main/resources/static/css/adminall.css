@@ -1,7 +1,8 @@
 body {
-    background-color: #f0f1f7;
+    background-size: cover;
+    background-image: url(../images/caffe.jpeg);
     font-family: Avenir;
-    color: #091db8;
+    color: #16565c;
     margin: 20px 50px 10px 50px
 }
 
@@ -42,7 +43,7 @@ input {
 
     font-size: 16px;
     border: none;
-    border-bottom: 1px solid #091db8;
+    border-bottom: 1px solid #16565c;
     outline: none;
     background: transparent;
 }
@@ -50,9 +51,9 @@ input {
 select {
 
     border: none;
-    border-bottom: 1px solid #091db8;
+    border-bottom: 1px solid #16565c;
     outline: none;
-    background: #bcc4f7;
+    background: #86cdd4;
 
 }
 
@@ -62,11 +63,11 @@ fieldset {
     margin: 10px;
     border: none;
     outline: none;
-    background: #bcc4f7;
+    background: #86cdd4;
 }
 
 .button {
-    background-color: #091db8;
+    background-color: #16565c;
     border-radius: 1000px;
     border: none;
     color: white;
@@ -84,11 +85,11 @@ fieldset {
     text-align: center;
     border-radius: 10px;
     padding: 20px;
-    background:   #bcc4f7; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left, #bcc4f7 , #f0f1f7); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right,  #bcc4f7, #f0f1f7); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #bcc4f7,#f0f1f7); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #bcc4f7, #f0f1f7); /* Standard syntax */
+    background:   #c8cdd1; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #86cdd4 , #c8cdd1); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right,  #86cdd4, #c8cdd1); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #86cdd4,#c8cdd1); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #86cdd4, #c8cdd1); /* Standard syntax */
 }
 
 

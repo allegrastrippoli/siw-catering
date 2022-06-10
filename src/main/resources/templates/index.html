@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Demo</title>
-    <link th:href="@{/css/trueindex.css}" rel="stylesheet" href="../../static/css/trueindex.css">
-</head>
-<body id="grad">
-<div class="this-box">
-    <h2>Servizio di catering</h2>
+    <link
+      th:href="@{/css/trueindex.css}"
+      rel="stylesheet"
+      href="../../static/css/trueindex.css"
+    />
+  </head>
+  <body>
+    <div class="this-box">
+      <h2>Servizio di catering</h2>
 
-    <h4>Spazio utenti</h4>
-    <div><span> Clicca qui: </span><a th:href="@{/allindex}">naviga</a></div>
+      <h4>Spazio utenti</h4>
+      <div><span> Clicca qui: </span><a th:href="@{/allindex}">naviga</a></div>
 
-    <h4>Spazio admin</h4>
-    <div><span> Clicca qui: </span><a th:href="@{/login}">login</a></div>
-    <!--div><span>if u wanna join: </span><a th:href="@{/register}">registrati</a></div-->
-    <!--hr-->
-   
-</div>
-</body>
+      <h4>Spazio admin</h4>
+      <div><span> Clicca qui: </span><a th:href="@{/login}">login</a></div>
+      <!--div><span>if u wanna join: </span><a th:href="@{/register}">registrati</a></div-->
+      <!--hr-->
+    </div>
+  </body>
 </html>

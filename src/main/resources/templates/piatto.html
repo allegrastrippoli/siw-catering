@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Demo</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
-</head>
-<body>
-<div>
-    <h2>Dettagli piatto</h2>
-    <div class="basic-flex">
-    <div class="child-flex">
+    <link
+      th:href="@{/css/index.css}"
+      rel="stylesheet"
+      href="../../static/css/index.css"
+    />
+  </head>
+  <body>
+    <div>
+      <div class="basic-flex">
+        <div class="child-flex">
+          <div>piatto:</div>
+          <div><span> Nome: </span><span th:text="${piatto.nome}"></span></div>
+          <div>
+            <span> Descrizione: </span
+            ><span th:text="${piatto.descrizione}"></span>
+          </div>
+        </div>
 
-        <div>piatto: </div>
-        <div><span> Nome: </span><span th:text="${piatto.nome}"></span></div>
-        <div><span> Descrizione: </span><span th:text="${piatto.descrizione}"></span></div>
+        <div class="child-flex">
+          <div>ingradiente:</div>
 
+          <div th:each="ingradiente : ${piatto.ingradienti}">
+            <a
+              th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
+              th:text="${ingradiente.nome}"
+            ></a>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="child-flex">
-        <div>ingradiente: </div>
-
-            <div th:each="ingradiente : ${piatto.ingradienti}">
-                <a th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
-                   th:text="${ingradiente.nome}"></a>
-            </div>
+    <div id="margin-settings">
+      <footer class="link-settings">
+        <a th:href="@{/allindex}" href="/allindex.html">User's home</a>
+      </footer>
+      <footer class="link-settings">
+        <a th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a>
+      </footer>
     </div>
-    </div>
-
-</div>
-<div id="margin-settings">
-<footer class="link-settings"><a  th:href="@{/allindex}" href="/allindex.html">User's home</a></footer>
-<footer class="link-settings"><a  th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a></footer>
-</div>
-</body>
+  </body>
 </html>

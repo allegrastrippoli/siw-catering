@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8" />
-  <title>Demo</title>
-  <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
-</head>
-<body>
-<div>
-  <h2>Dettagli ingradiente</h2>
-  <div class="basic-flex">
-  <div  class="child-flex">
-    <div><span>Nome: </span><span th:text="${ingradiente.nome}"></span></div>
-    <div><span>Origine: </span><span th:text="${ingradiente.origine}"></span></div>
-    <div><span>Descrizione: </span><span th:text="${ingradiente.descrizione}"></span></div>
-  </div>
-  </div>
-</div>
-<div id="margin-settings">
-<footer  class="link-settings"><a  th:href="@{/allindex}" href="/allindex.html">User's home</a></footer>
-<footer  class="link-settings"><a  th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a></footer>
-</div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Demo</title>
+    <link
+      th:href="@{/css/index.css}"
+      rel="stylesheet"
+      href="../../static/css/index.css"
+    />
+  </head>
+  <body>
+    <div>
+      <div class="basic-flex">
+        <div class="child-flex">
+          <div>
+            <span>Nome: </span><span th:text="${ingradiente.nome}"></span>
+          </div>
+          <div>
+            <span>Origine: </span><span th:text="${ingradiente.origine}"></span>
+          </div>
+          <div>
+            <span>Descrizione: </span
+            ><span th:text="${ingradiente.descrizione}"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="margin-settings">
+      <footer class="link-settings">
+        <a th:href="@{/allindex}" href="/allindex.html">User's home</a>
+      </footer>
+      <footer class="link-settings">
+        <a th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a>
+      </footer>
+    </div>
+  </body>
 </html>

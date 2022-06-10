@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <title>Chef</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
-</head>
-<body>
-<h2>Piatti</h2>
-
+    <link
+      th:href="@{/css/index.css}"
+      rel="stylesheet"
+      href="../../static/css/index.css"
+    />
+  </head>
+  <body>
     <div class="basic-flex">
-    <div th:each="piatto : ${piatti}">
+      <div th:each="piatto : ${piatti}">
         <div class="child-flex">
+          <div class="title-settings" th:text="${piatto.nome}"></div>
+          <div th:text="${piatto.descrizione}"></div>
 
-        <div class="title-settings"
-                 th:text="${piatto.nome}"></div>
-                 <div th:text="${piatto.descrizione}" ></div>
-
-            <div class="link-settings">
-        <div> <a th:href="@{'/admin/piattoDelete' + '/' + ${piatto.id}}">cancella piatto</a></div>
-        <div> <a th:href="@{'/admin/piattoEdit' + '/' + ${piatto.id}}">modifica piatto</a></div>
+          <div class="link-settings">
+            <div>
+              <a th:href="@{'/admin/piattoDelete' + '/' + ${piatto.id}}"
+                >cancella piatto</a
+              >
+            </div>
+            <div>
+              <a th:href="@{'/admin/piattoEdit' + '/' + ${piatto.id}}"
+                >modifica piatto</a
+              >
+            </div>
+          </div>
         </div>
-
-        </div>
+      </div>
     </div>
-    </div>
-
-
-</body>
+  </body>
 </html>

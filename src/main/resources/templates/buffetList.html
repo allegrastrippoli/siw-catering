@@ -9,31 +9,25 @@
     />
   </head>
   <body>
-    <h2>Buffet</h2>
-
     <div class="basic-flex">
       <div th:each="buffet : ${buffet}">
         <div class="child-flex">
-        <div class="title-settings"
-            th:text="${buffet.nome}"
-          >
-        </div>
-        <div th:text="${buffet.descrizione}"></div>
+          <div class="title-settings" th:text="${buffet.nome}"></div>
+          <div th:text="${buffet.descrizione}"></div>
 
-        <div  class="link-settings">
-          <div>
-          <a th:href="@{'/admin/buffetDelete' + '/' + ${buffet.id}}"
-            >cancella buffet</a
-          >
+          <div class="link-settings">
+            <div>
+              <a th:href="@{'/admin/buffetDelete' + '/' + ${buffet.id}}"
+                >cancella buffet</a
+              >
+            </div>
+            <div>
+              <a th:href="@{'/admin/buffetEdit' + '/' + ${buffet.id}}"
+                >modifica buffet</a
+              >
+            </div>
+          </div>
         </div>
-        <div>
-          <a th:href="@{'/admin/buffetEdit' + '/' + ${buffet.id}}"
-            >modifica buffet</a
-          >
-        </div>
-        </div>
-</div>
-
       </div>
     </div>
   </body>
