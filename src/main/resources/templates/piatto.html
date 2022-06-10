@@ -7,27 +7,30 @@
 </head>
 <body>
 <div>
-    <h4>Dettagli piatto</h4>
-    <link rel="stylesheet" href="index.css" />
-    <div>
+    <h2>Dettagli piatto</h2>
+    <div class="basic-flex">
+    <div class="child-flex">
 
-        <h4>Dettagli piatto: </h4>
+        <div>piatto: </div>
         <div><span> Nome: </span><span th:text="${piatto.nome}"></span></div>
         <div><span> Descrizione: </span><span th:text="${piatto.descrizione}"></span></div>
 
-        <hr>
+    </div>
 
-        <h4>Dettagli ingradiente: </h4>
+    <div class="child-flex">
+        <div>ingradiente: </div>
 
             <div th:each="ingradiente : ${piatto.ingradienti}">
                 <a th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
                    th:text="${ingradiente.nome}"></a>
             </div>
-
+    </div>
     </div>
 
 </div>
-<footer><a  th:href="@{/allindex}" href="/allindex.html">User's home</a></footer>
-<footer><a  th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a></footer>
+<div id="margin-settings">
+<footer class="link-settings"><a  th:href="@{/allindex}" href="/allindex.html">User's home</a></footer>
+<footer class="link-settings"><a  th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a></footer>
+</div>
 </body>
 </html>

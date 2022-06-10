@@ -7,14 +7,18 @@
 </head>
 <body>
 <div>
-  <h4>Dettagli ingradiente</h4>
-  <div>
+  <h2>Dettagli ingradiente</h2>
+  <div class="basic-flex">
+  <div  class="child-flex">
     <div><span>Nome: </span><span th:text="${ingradiente.nome}"></span></div>
     <div><span>Origine: </span><span th:text="${ingradiente.origine}"></span></div>
     <div><span>Descrizione: </span><span th:text="${ingradiente.descrizione}"></span></div>
   </div>
+  </div>
 </div>
-<footer><a  th:href="@{/allindex}" href="/allindex.html">User's home</a></footer>
-<footer><a  th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a></footer>
+<div id="margin-settings">
+<footer  class="link-settings"><a  th:href="@{/allindex}" href="/allindex.html">User's home</a></footer>
+<footer  class="link-settings"><a  th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a></footer>
+</div>
 </body>
 </html>

@@ -7,16 +7,19 @@
 </head>
 <body>
 <div>
-    <h4>Dettagli chef</h4>
-    <div>
+    <h2>Dettagli chef</h2>
+    <div class="basic-flex">
+    <div class="child-flex">
         <div><span>Nome: </span><span th:text="${chef.nome}"></span></div>
         <div><span>Cognome: </span><span th:text="${chef.cognome}"></span></div>
         <div><span>Nazionalita: </span><span th:text="${chef.nazionalita}"></span></div>
     </div>
 
+        <div class="child-flex">
     <div th:each="buffet : ${chef.buffets}">
         <a th:href="@{'/buffet' + '/' + ${buffet.id}}" th:text="${buffet.nome}"></a>
     </div>
+        </div>
 
     <!--ul>
         <li th:each="chef : ${chef.buffets}">
@@ -26,7 +29,10 @@
     </ul-->
 
 </div>
-<footer><a th:href="@{/allindex}" href="/adminindex.html">User's home</a></footer>
-<footer><a th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a></footer>
+    <div id="margin-settings">
+<footer class="link-settings"><a th:href="@{/allindex}" href="/adminindex.html">User's home</a></footer>
+<footer class="link-settings"><a th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a></footer>
+</div>
+    </div>
 </body>
 </html>

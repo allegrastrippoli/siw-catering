@@ -13,9 +13,14 @@ a {
     color: black;
 }
 
+#margin-settings {
+    padding: 20px;
+    text-align: center;
+}
 
 .title-settings {
     font-weight: bold;
+
 }
 
 .child-flex {
@@ -34,7 +39,7 @@ a {
     flex-direction: column;
     flex-grow: 1;
     flex-wrap: wrap;
-    gap: 2rem; 
+    gap: 2rem;
 
 }
 
@@ -46,4 +51,5 @@ a {
     margin-top: 10px;
     font-size: 70%
 }
+
 
