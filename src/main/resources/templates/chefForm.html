@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>inserimento chef</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
+    <link th:href="@{/css/adminall.css}" rel="stylesheet" href="../../static/css/adminall.css">
 </head>
 <body>
 <!--/*@thymesVar id="chef" type="it.uniroma3.siw.model.Chef"*/-->
@@ -12,20 +12,23 @@
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
     </div>
 
-    <div>Inserisci chef: </div>
-    <div>
-        nome: <input type="text" th:field="*{nome}" />
-        <div th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></div>
+
+    <div id = "this-box" class = "grad">
+        <h2>Inserisci chef: </h2>
+        <div>
+            nome: <input type="text" th:field="*{nome}" />
+            <div th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></div>
+        </div>
+        <div>
+            cognome: <input type="text" th:field="*{cognome}" />
+            <div th:errors="*{cognome}" th:if="${#fields.hasErrors('cognome')}"></div>
+        </div>
+        <div>
+            nazionalita: <input type="text" th:field="*{nazionalita}" />
+            <div th:errors="*{nazionalita}" th:if="${#fields.hasErrors('nazionalita')}"></div>
+        </div>
+        <div><button class="button" type="submit"/>Conferma</div>
     </div>
-    <div>
-        cognome: <input type="text" th:field="*{cognome}" />
-        <div th:errors="*{cognome}" th:if="${#fields.hasErrors('cognome')}"></div>
-    </div>
-    <div>
-        nazionalita: <input type="text" th:field="*{nazionalita}" />
-        <div th:errors="*{nazionalita}" th:if="${#fields.hasErrors('nazionalita')}"></div>
-    </div>
-    <div><button type="submit"/>Conferma</div>
 </form>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>inserimento chef</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
+    <link th:href="@{/css/adminall.css}" rel="stylesheet" href="../../static/css/adminall.css">
 </head>
 <body>
 <!--/*@thymesVar id="chef" type="it.uniroma3.siw.model.Chef"*/-->
@@ -14,7 +14,8 @@
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
     </div>
 
-    <div>Inserisci buffet: </div>
+    <div id = "this-box" class = "grad">
+    <h2>Inserisci buffet: </h2>
     <div>
         nome: <input type="text" th:field="*{nome}" th:value="*{nome}" />
         <div th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></div>
@@ -47,7 +48,8 @@
         </fieldset>
     </div>
 
-    <div><button type="submit"/>Conferma</div>
+    <div><button class="button" type="submit"/>Conferma</div>
+    </div>
 </form>
 </body>
 </html>

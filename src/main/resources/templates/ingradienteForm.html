@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <title>Inserimento ingradiente</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
+    <link th:href="@{/css/adminall.css}" rel="stylesheet" href="../../static/css/adminall.css">
 </head>
 <body>
 <form th:action="@{/admin/ingradiente}" method="post" th:object="${ingradiente}">
 
-    <div>Inserisci ingradiente: </div>
+    <div id = "this-box" class = "grad">
+    <h2>Inserisci ingradiente: </h2>
     <div>nome:<input type="text" th:field="*{nome}" /></div>
     <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
 
@@ -19,7 +20,8 @@
     <div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
 
 
-    <div><button type="submit"/>Conferma</button></div>
+    <div><button class="button" type="submit"/>Conferma</button></div>
+    </div>
 </form>
 </body>
 </html>

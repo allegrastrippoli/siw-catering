@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <title>Inserimento piatto</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}" href="../static/css/index.css" />
+    <link rel="stylesheet" th:href="@{/css/adminall.css}" href="../static/css/adminall.css" />
 </head>
 <body>
 <!--/*@thymesVar id="piatto" type="it.uniroma3.siw.model.Piatto"*/-->
 <form th:action="@{/admin/piatto}" method="post" th:object="${piatto}">
 
-    <div>Inserisci piatto: </div>
+    <div id = "this-box" class = "grad">
+    <h2>Inserisci piatto: </h2>
     <div>nome:<input type="text" th:field="*{nome}" /></div>
     <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
 
@@ -27,7 +28,8 @@
         </fieldset>
     </div>
 
-    <div><button type="submit"/>Conferma</button></div>
+    <div><button  class="button"  type="submit"/>Conferma</button></div>
+    </div>
 </form>
 </body>
 </html>
