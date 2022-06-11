@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Ingradiente {
+public class Ingrediente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

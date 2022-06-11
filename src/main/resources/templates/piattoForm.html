@@ -21,9 +21,9 @@
 
         <fieldset>
             <legend>Seleziona</legend>
-            <div th:each="ingradiente: ${ingradienti}">
-                <input type="checkbox" id="${ingradienti}" th:field="*{ingradienti}" name="ingradiente" th:value="${ingradiente.id}" >
-                <label for="${ingradienti}" th:text="${ingradiente.nome}">Nome ingradiente</label>
+            <div th:each="ingrediente: ${ingredienti}">
+                <input type="checkbox" id="${ingredienti}" th:field="*{ingredienti}" name="ingradiente" th:value="${ingrediente.id}" >
+                <label for="${ingredienti}" th:text="${ingrediente.nome}">Nome ingrediente</label>
             </div>
         </fieldset>
     </div>

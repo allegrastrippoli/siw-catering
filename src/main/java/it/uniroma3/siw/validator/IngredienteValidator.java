@@ -1,27 +1,27 @@
 package it.uniroma3.siw.validator;
 
-import it.uniroma3.siw.model.Ingradiente;
-import it.uniroma3.siw.service.IngradienteService;
+import it.uniroma3.siw.model.Ingrediente;
+import it.uniroma3.siw.service.IngredienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 @Component
-public class IngradienteValidator implements Validator {
+public class IngredienteValidator implements Validator {
 
 	@Autowired 
-	private IngradienteService is;
+	private IngredienteService is;
 	
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return Ingradiente.class.equals(clazz);
+		return Ingrediente.class.equals(clazz);
 	}
 
 	@Override
 	public void validate(Object o, Errors errors) {
-		if (is.alreadyExists((Ingradiente)o))
-			errors.reject("ingradiente.duplicato");
+		if (is.alreadyExists((Ingrediente)o))
+			errors.reject("ingrediente.duplicato");
 		
 	}
 

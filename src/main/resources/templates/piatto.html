@@ -24,10 +24,10 @@
         <div class="child-flex">
           <div>ingradiente:</div>
 
-          <div th:each="ingradiente : ${piatto.ingradienti}">
+          <div th:each="ingrediente : ${piatto.ingredienti}">
             <a
-              th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}"
-              th:text="${ingradiente.nome}"
+              th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
+              th:text="${ingrediente.nome}"
             ></a>
           </div>
         </div>

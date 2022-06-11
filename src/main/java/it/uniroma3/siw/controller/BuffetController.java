@@ -1,7 +1,6 @@
 package it.uniroma3.siw.controller;
 import it.uniroma3.siw.model.Buffet;
 import it.uniroma3.siw.model.Chef;
-import it.uniroma3.siw.model.Ingradiente;
 import it.uniroma3.siw.model.Piatto;
 import it.uniroma3.siw.service.BuffetService;
 import it.uniroma3.siw.service.ChefService;

@@ -1,10 +1,9 @@
 package it.uniroma3.siw.controller;
 
 import it.uniroma3.siw.model.Buffet;
-import it.uniroma3.siw.model.Ingradiente;
 import it.uniroma3.siw.model.Piatto;
 import it.uniroma3.siw.service.BuffetService;
-import it.uniroma3.siw.service.IngradienteService;
+import it.uniroma3.siw.service.IngredienteService;
 import it.uniroma3.siw.service.PiattoService;
 import it.uniroma3.siw.validator.PiattoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ public class PiattoController {
     private PiattoService piattoService;
 
     @Autowired
-    private IngradienteService ingradienteService;
+    private IngredienteService ingredienteService;
 
     @Autowired
     private PiattoValidator piattoValidator;
@@ -43,17 +42,17 @@ public class PiattoController {
         if(!bindingResult.hasErrors()) {
             piattoService.save(piatto);
             model.addAttribute("piatto", piatto);
-            model.addAttribute("ingradienti", piatto.getIngradienti());
+            model.addAttribute("ingradienti", piatto.getIngredienti());
             return "piatto.html";
         }
-        model.addAttribute("ingradienti", ingradienteService.findAll());
+        model.addAttribute("ingradienti", ingredienteService.findAll());
         return "piattoForm.html";
     }
 
     @GetMapping("/admin/piattoForm")
     public String getPiattoForm(Model model) {
         model.addAttribute("piatto", new Piatto());
-        model.addAttribute("ingradienti", ingradienteService.findAll());
+        model.addAttribute("ingradienti", ingredienteService.findAll());
         return "piattoForm.html";
     }
 
@@ -83,7 +82,7 @@ public class PiattoController {
             Piatto oldPiatto = piattoService.findById(id);
             oldPiatto.setNome(oldPiatto.getNome());
             oldPiatto.setDescrizione(oldPiatto.getDescrizione());
-            oldPiatto.setIngradienti(oldPiatto.getIngradienti());
+            oldPiatto.setIngredienti(oldPiatto.getIngredienti());
 
             piattoService.save(piatto);
             model.addAttribute("piatto", piatto);
@@ -98,7 +97,7 @@ public class PiattoController {
     public String editPiatto(@PathVariable("id") Long id, Model model) {
         Piatto piatto = piattoService.findById(id);
         model.addAttribute("piatto", piatto);
-        model.addAttribute("ingradienti", ingradienteService.findAll());
+        model.addAttribute("ingredienti", ingredienteService.findAll());
         return "piattoEdit.html";
     }
 

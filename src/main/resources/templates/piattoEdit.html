@@ -6,7 +6,7 @@
     <link th:href="@{/css/adminall.css}" rel="stylesheet" href="../../static/css/adminall.css">
 </head>
 <body>
-<!--/*@thymesVar id="ingradiente" type="it.uniroma3.siw.model.Ingradiente"*/-->
+<!--/*@thymesVar id="ingradiente" type="it.uniroma3.siw.model.Ingrediente"*/-->
 <!--/*@thymesVar id="piatto" type="it.uniroma3.siw.model.Piatto"*/-->
 <form th:action="@{/admin/piattoEdited/{id}(id=${piatto.id})}" method="post" th:object="${piatto}">
     <div th:if="${#fields.hasGlobalErrors()}">
@@ -28,9 +28,9 @@
         <div>
             <fieldset>
                 <legend>Seleziona</legend>
-                <div th:each="ingradiente: ${ingradienti}">
-                    <input type="checkbox" id="${ingradienti}" th:field="*{ingradienti}" name="ingradiente" th:value="${ingradiente.id}" >
-                    <label for="${ingradienti}" th:text="${ingradiente.nome}">Nome ingradiente</label>
+                <div th:each="ingrediente: ${ingredienti}">
+                    <input type="checkbox" id="${ingredienti}" th:field="*{ingredienti}" name="ingrediente" th:value="${ingrediente.id}" >
+                    <label for="${ingredienti}" th:text="${ingrediente.nome}">Nome ingrediente</label>
                 </div>
             </fieldset>
         </div>

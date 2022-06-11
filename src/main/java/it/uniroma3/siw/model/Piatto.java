@@ -18,7 +18,7 @@ public class Piatto {
 	String descrizione;
 	
 	@ManyToMany
-	List<Ingradiente> ingradienti;
+	List<Ingrediente> ingredienti;
 
 
 	public Long getId() {
@@ -45,12 +45,12 @@ public class Piatto {
 		this.descrizione = descrizione;
 	}
 
-	public List<Ingradiente> getIngradienti() {
-		return ingradienti;
+	public List<Ingrediente> getIngredienti() {
+		return ingredienti;
 	}
 
-	public void setIngradienti(List<Ingradiente> ingradienti) {
-		this.ingradienti = ingradienti;
+	public void setIngredienti(List<Ingrediente> ingradienti) {
+		this.ingredienti = ingradienti;
 	}
 	
 	

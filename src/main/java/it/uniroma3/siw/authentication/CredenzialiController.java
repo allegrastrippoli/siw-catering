@@ -1,5 +1,4 @@
 package it.uniroma3.siw.authentication;
-import it.uniroma3.siw.model.Ingradiente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

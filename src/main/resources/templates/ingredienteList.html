@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Ingradiente</title>
+    <title>Ingrediente</title>
     <link
       th:href="@{/css/index.css}"
       rel="stylesheet"
@@ -11,27 +11,28 @@
   <body>
 
     <div class="basic-flex">
-        <div th:each="ingradiente : ${ingradienti}">
+        <div th:each="ingrediente : ${ingredienti}">
                 <div class="child-flex">
 
-                      <div class="title-settings" th:text="${ingradiente.nome}"> </div>
-                      <div><span>from: </span><span th:text="${ingradiente.origine}"></span></div>
-                      <div th:text="${ingradiente.descrizione}"></div>
+                      <div class="title-settings" th:text="${ingrediente.nome}"> </div>
+                      <div><span>from: </span><span th:text="${ingrediente.origine}"></span></div>
+                      <div th:text="${ingrediente.descrizione}"></div>
 
                       <div class="link-settings">
                           <div>
-                              <a th:href="@{'/ingradiente' + '/' + ${ingradiente.id}}">dettagli ingradiente</a>
+                              <a th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}">dettagli ingrediente</a>
                           </div>
                       <div>
-                        <a th:href="@{'/admin/ingradienteDelete' + '/' + ${ingradiente.id}}"
-                          >cancella ingradiente</a>
+                        <a th:href="@{'/admin/ingredienteDelete' + '/' + ${ingrediente.id}}"
+                          >cancella ingrediente</a>
                       </div>
                       <div>
-                        <a th:href="@{'/admin/ingradienteEdit' + '/' + ${ingradiente.id}}"
-                          >modifica ingradiente</a>
+                        <a th:href="@{'/admin/ingredienteEdit' + '/' + ${ingrediente.id}}"
+                          >modifica ingrediente</a>
                       </div>
                 </div>
         </div>
+    </div>
     </div>
     <footer id="margin-settings">
       <div class="link-settings">
