@@ -1,36 +1,65 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>inserimento chef</title>
-    <link th:href="@{/css/adminall.css}" rel="stylesheet" href="../../static/css/adminall.css">
-</head>
-<body>
+    <link
+      th:href="@{/css/adminall.css}"
+      rel="stylesheet"
+      href="../../static/css/adminall.css"
+    />
+  </head>
+  <body>
+    <form
+      th:action="@{/admin/ingredienteEdited/{id}(id=${ingrediente.id})}"
+      method="post"
+      th:object="${ingrediente}"
+    >
+      <div th:if="${#fields.hasGlobalErrors()}">
+        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">
+          errore globale
+        </p>
+      </div>
 
-<form th:action="@{/admin/ingredienteEdited/{id}(id=${ingrediente.id})}" method="post" th:object="${ingrediente}">
-    <div th:if="${#fields.hasGlobalErrors()}">
-        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
-    </div>
+      <div id="this-box" class="grad">
+        <h2>Inserisci chef:</h2>
+        <div>
+          nome: <input type="text" th:field="*{nome}" th:value="*{nome}" />
+          <div th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></div>
+        </div>
 
-    <div id = "this-box" class = "grad">
-    <h2>Inserisci chef: </h2>
-    <div>
-        nome: <input type="text" th:field="*{nome}" th:value="*{nome}" />
-        <div th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></div>
-    </div>
+        <div>
+          origine:
+          <input type="text" th:field="*{origine}" th:value="*{origine}" />
+          <div
+            th:errors="*{origine}"
+            th:if="${#fields.hasErrors('origine')}"
+          ></div>
+        </div>
 
-    <div>
-        origine: <input type="text" th:field="*{origine}" th:value="*{origine}" />
-        <div th:errors="*{origine}" th:if="${#fields.hasErrors('origine')}"></div>
-    </div>
+        <div>
+          descrizione:
+          <input
+            type="text"
+            th:field="*{descrizione}"
+            th:value="*{descrizione}"
+          />
+          <div
+            th:errors="*{descrizione}"
+            th:if="${#fields.hasErrors('descrizione')}"
+          ></div>
+        </div>
 
-    <div>
-        descrizione: <input type="text" th:field="*{descrizione}" th:value="*{descrizione}" />
-        <div th:errors="*{descrizione}" th:if="${#fields.hasErrors('descrizione')}"></div>
-    </div>
-
-    <div><button class="button" type="submit"/>Conferma</div>
-    </div>
-</form>
-</body>
+        <div><button class="button" type="submit" />Conferma</div>
+        <footer id="margin-settings">
+          <div class="link-settings">
+            <a th:href="@{/allindex}" href="/allindex.html">User's home</a>
+          </div>
+          <div class="link-settings">
+            <a th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a>
+          </div>
+        </footer>
+      </div>
+    </form>
+  </body>
 </html>

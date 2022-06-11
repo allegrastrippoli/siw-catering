@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class BuffetValidator implements Validator {
 
     @Autowired
-    private BuffetService bs;
+    private BuffetService buffetService;
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -20,7 +20,7 @@ public class BuffetValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-        if(bs.alreadyExists((Buffet)o))
+        if(buffetService.alreadyExists((Buffet)o))
             errors.reject("buffet.duplicato");
     }
 }

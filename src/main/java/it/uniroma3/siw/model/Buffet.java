@@ -17,7 +17,7 @@ public class Buffet {
 	@NotBlank
 	String descrizione;
 
-	@OneToMany
+	@ManyToMany
 	List<Piatto> piatti;
 
 	@ManyToOne

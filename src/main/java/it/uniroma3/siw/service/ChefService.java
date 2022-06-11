@@ -13,33 +13,33 @@ import java.util.List;
 public class ChefService {
 
     @Autowired
-    private ChefRepository pr;
+    private ChefRepository chefRepository;
 
     @Transactional
-    public void save(Chef chef) { pr.save(chef); }
+    public void save(Chef chef) { chefRepository.save(chef); }
 
     @Transactional
     public void deleteById(Long id) {
-        pr.deleteById(id);
+        chefRepository.deleteById(id);
     }
 
     /* findById e findAll non sono @Transactional perche' richiedono solo lettura */
     public Chef findById(Long id) {
 
-        return pr.findById(id).get();
+        return chefRepository.findById(id).get();
     }
 
 
     /* il metodo e' stato implementato in modo da non rendere possibile l'inserimento di due persone che hanno stesso nome, cognome, eta' */
     public boolean alreadyExists(Chef chef) {
-        return pr.existsByNomeAndCognomeAndNazionalita(chef.getNome(), chef.getCognome(), chef.getNazionalita());
+        return chefRepository.existsByNomeAndCognomeAndNazionalita(chef.getNome(), chef.getCognome(), chef.getNazionalita());
 
     }
 
     public List<Chef> findAll() {
 
         List<Chef> chefs=new ArrayList<Chef>();
-        for(Chef c : pr.findAll()) {
+        for(Chef c : chefRepository.findAll()) {
             chefs.add(c);
         }
         return chefs;

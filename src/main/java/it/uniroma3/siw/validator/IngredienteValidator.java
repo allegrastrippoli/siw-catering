@@ -11,7 +11,7 @@ import org.springframework.validation.Validator;
 public class IngredienteValidator implements Validator {
 
 	@Autowired 
-	private IngredienteService is;
+	private IngredienteService ingredienteService;
 	
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -20,7 +20,7 @@ public class IngredienteValidator implements Validator {
 
 	@Override
 	public void validate(Object o, Errors errors) {
-		if (is.alreadyExists((Ingrediente)o))
+		if (ingredienteService.alreadyExists((Ingrediente)o))
 			errors.reject("ingrediente.duplicato");
 		
 	}

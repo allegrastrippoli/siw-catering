@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class PiattoValidator implements Validator {
 
     @Autowired
-    private PiattoService ps;
+    private PiattoService piattoService;
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -19,7 +19,7 @@ public class PiattoValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-        if(ps.alreadyExists((Piatto)o))
+        if(piattoService.alreadyExists((Piatto)o))
             errors.reject("piatto.duplicato");
     }
 }

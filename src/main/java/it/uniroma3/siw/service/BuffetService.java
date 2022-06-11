@@ -13,32 +13,32 @@ import java.util.List;
 public class BuffetService {
 
     @Autowired
-    private BuffetRepository br;
+    private BuffetRepository buffetRepository;
 
 
     @Transactional
-    public void save(Buffet buffet) { br.save(buffet); }
+    public void save(Buffet buffet) { buffetRepository.save(buffet); }
 
     @Transactional
     public void deleteById(Long id) {
-        br.deleteById(id);
+        buffetRepository.deleteById(id);
     }
 
 
     public Buffet findById(Long id) {
 
-        return br.findById(id).get();
+        return buffetRepository.findById(id).get();
     }
 
     public boolean alreadyExists(Buffet buffet) {
-        return br.existsByNome(buffet.getNome());
+        return buffetRepository.existsByNome(buffet.getNome());
 
     }
 
     public List<Buffet> findAll() {
 
         List<Buffet> buffets = new ArrayList<Buffet>();
-        for (Buffet b : br.findAll()) {
+        for (Buffet b : buffetRepository.findAll()) {
             buffets.add(b);
         }
         return buffets;

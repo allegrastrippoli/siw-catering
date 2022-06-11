@@ -11,7 +11,7 @@ import org.springframework.validation.Validator;
 public class ChefValidator implements Validator {
 
 	@Autowired
-	private ChefService ps;
+	private ChefService chefService;
 
 	
 	public boolean supports(Class<?> clazz) {
@@ -20,7 +20,7 @@ public class ChefValidator implements Validator {
 
 	@Override
 	public void validate(Object o, Errors errors) {
-		if (ps.alreadyExists((Chef)o)) {
+		if (chefService.alreadyExists((Chef)o)) {
 			errors.reject("chef.duplicato");
 		}
 
