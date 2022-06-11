@@ -15,10 +15,6 @@ a {
     color: black;
 }
 
-#margin-settings {
-    padding: 20px;
-    text-align: center;
-}
 
 .title-settings {
     font-weight: bold;
@@ -54,4 +50,8 @@ a {
     font-size: 70%
 }
 
+#margin-settings {
+    padding: 20px;
+    text-align: center;
+}
 

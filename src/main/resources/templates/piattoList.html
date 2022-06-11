@@ -20,7 +20,9 @@
               <a th:href="@{'/piatto' + '/' + ${piatto.id}}">dettagli piatto</a>
             </div>
             <div>
-              <a th:href="@{'/admin/piattoDelete' + '/' + ${piatto.id}}">cancella piatto</a>
+              <a th:href="@{'/admin/piattoDelete' + '/' + ${piatto.id}}"
+                >cancella piatto</a
+              >
             </div>
             <div>
               <a th:href="@{'/admin/piattoEdit' + '/' + ${piatto.id}}"
@@ -31,5 +33,13 @@
         </div>
       </div>
     </div>
+    <footer id="margin-settings">
+      <div class="link-settings">
+        <a th:href="@{/allindex}" href="/allindex.html">User's home</a>
+      </div>
+      <div class="link-settings">
+        <a th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a>
+      </div>
+    </footer>
   </body>
 </html>

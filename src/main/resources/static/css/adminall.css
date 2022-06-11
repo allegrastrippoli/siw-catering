@@ -92,6 +92,16 @@ fieldset {
     background: linear-gradient(to right, #86cdd4, #c8cdd1); /* Standard syntax */
 }
 
+.link-settings {
+    margin-top: 10px;
+    font-size: 70%
+}
+
+#margin-settings {
+    padding: 20px;
+    text-align: center;
+}
+
 
 
 

@@ -1,40 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Demo</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" href="../../static/css/index.css">
-</head>
-<body>
-<div>
-    <div class="basic-flex">
+    <link
+      th:href="@{/css/index.css}"
+      rel="stylesheet"
+      href="../../static/css/index.css"
+    />
+  </head>
+  <body>
+    <div>
+      <div class="basic-flex">
         <div class="child-flex">
-            <div> buffet: </div>
-            <div><span>Nome: </span><span th:text="${buffet.nome}"></span></div>
-            <div><span>Descrizione: </span><span th:text="${buffet.descrizione}"></span></div>
-        </div>
-
-        <div  class="child-flex">
-            <div>chef: </div>
-            <div><span>Nome: </span><span th:text="${buffet.chef.nome}"></span></div>
-            <div><span>Cognome: </span><span th:text="${buffet.chef.cognome}"></span></div>
-            <div><span>Nazionalita: </span><span th:text="${buffet.chef.nazionalita}"></span></div>
+          <div>buffet:</div>
+          <div><span>Nome: </span><span th:text="${buffet.nome}"></span></div>
+          <div>
+            <span>Descrizione: </span
+            ><span th:text="${buffet.descrizione}"></span>
+          </div>
         </div>
 
         <div class="child-flex">
-            <div>piatti: </div>
-            <div th:each="piatto : ${buffet.piatti}">
-                <a th:href="@{'/piatto' + '/' + ${piatto.id}}"
-                   th:text="${piatto.nome}"></a>
-            </div>
+          <div>chef:</div>
+          <div>
+            <span>Nome: </span><span th:text="${buffet.chef.nome}"></span>
+          </div>
+          <div>
+            <span>Cognome: </span><span th:text="${buffet.chef.cognome}"></span>
+          </div>
+          <div>
+            <span>Nazionalita: </span
+            ><span th:text="${buffet.chef.nazionalita}"></span>
+          </div>
         </div>
 
-    </div>
+        <div class="child-flex">
+          <div>piatti:</div>
+          <div th:each="piatto : ${buffet.piatti}">
+            <a
+              th:href="@{'/piatto' + '/' + ${piatto.id}}"
+              th:text="${piatto.nome}"
+            ></a>
+          </div>
+        </div>
+      </div>
 
-    <div id="margin-settings">
-        <footer class="link-settings"><a  th:href="@{/allindex}" href="/allindex.html">User's home</a></footer>
-        <footer class="link-settings"><a  th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a></footer>
+      <footer id="margin-settings">
+        <div class="link-settings">
+          <a th:href="@{/allindex}" href="/allindex.html">User's home</a>
+        </div>
+        <div class="link-settings">
+          <a th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a>
+        </div>
+      </footer>
     </div>
-</div>
-</body>
+  </body>
 </html>

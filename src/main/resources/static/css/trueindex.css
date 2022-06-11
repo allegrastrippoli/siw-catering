@@ -24,3 +24,12 @@ a {
 
 }
 
+.link-settings {
+    margin-top: 10px;
+    font-size: 70%
+}
+
+#margin-settings {
+    padding: 20px;
+    text-align: center;
+}
