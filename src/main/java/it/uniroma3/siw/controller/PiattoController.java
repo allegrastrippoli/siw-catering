@@ -34,6 +34,14 @@ public class PiattoController {
     @Autowired
     private BuffetService buffetService;
 
+
+    @GetMapping("/admin/piattoForm")
+    public String getPiattoForm(Model model) {
+        model.addAttribute("piatto", new Piatto());
+        model.addAttribute("ingradienti", ingredienteService.findAll());
+        return "piattoForm.html";
+    }
+
     @PostMapping("/admin/piatto")
     public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, Model model, BindingResult bindingResult) {
 
@@ -49,12 +57,6 @@ public class PiattoController {
         return "piattoForm.html";
     }
 
-    @GetMapping("/admin/piattoForm")
-    public String getPiattoForm(Model model) {
-        model.addAttribute("piatto", new Piatto());
-        model.addAttribute("ingradienti", ingredienteService.findAll());
-        return "piattoForm.html";
-    }
 
 
     @GetMapping("/admin/piattoDelete/{id}")

@@ -35,6 +35,15 @@ public class BuffetController {
 	private ChefService chefService;
 
 
+	@GetMapping("/admin/buffetForm")
+	public String getBuffetForm(Model model) {
+		List<Piatto> piatti = piattoService.findAll();
+		model.addAttribute("piatti", piatti);
+		model.addAttribute("chefs", chefService.findAll());
+		model.addAttribute("buffet", new Buffet());
+		return "buffetForm.html";
+	}
+
 	@PostMapping("/admin/buffet")
 	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, Model model, BindingResult bindingResult) {
 
@@ -51,14 +60,7 @@ public class BuffetController {
 		return "buffetForm.html";
 	}
 
-	@GetMapping("/admin/buffetForm")
-	public String getBuffetForm(Model model) {
-		List<Piatto> piatti = piattoService.findAll();
-		model.addAttribute("piatti", piatti);
-		model.addAttribute("chefs", chefService.findAll());
-		model.addAttribute("buffet", new Buffet());
-		return "buffetForm.html";
-	}
+
 
 	@GetMapping("/admin/buffetDelete/{id}")
 	public String deleteBuffet(@PathVariable("id") Long id, Model model) {

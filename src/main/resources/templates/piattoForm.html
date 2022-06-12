@@ -19,8 +19,8 @@
 
     <div>
 
+        <div>Seleziona ingredienti: </div>
         <fieldset>
-            <legend>Seleziona</legend>
             <div th:each="ingrediente: ${ingredienti}">
                 <input type="checkbox" id="${ingredienti}" th:field="*{ingredienti}" name="ingradiente" th:value="${ingrediente.id}" >
                 <label for="${ingredienti}" th:text="${ingrediente.nome}">Nome ingrediente</label>

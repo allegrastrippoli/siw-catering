@@ -35,8 +35,8 @@
 
 
             <div>
+                <div>Seleziona piatti: </div>
                 <fieldset>
-                    <legend>Seleziona piatti: </legend>
                     <div th:each="piatto: ${piatti}">
                         <input type="checkbox" id="${piatti}" th:field="*{piatti}" name="piatto" th:value="${piatto.id}" >
                         <label for="${piatti}" th:text="${piatto.nome}">Nome piatto</label>

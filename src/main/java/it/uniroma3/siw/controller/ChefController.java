@@ -30,6 +30,12 @@ public class ChefController {
 	 *POST per scrittura */
 
 
+	@GetMapping("/admin/chefForm")
+	public String getChefForm(Model model) {
+		model.addAttribute("chef", new Chef());
+		return "chefForm.html";
+	}
+
 	@PostMapping("/admin/chef")
 	public String addChef(@Valid @ModelAttribute("chef") Chef chef, Model model, BindingResult bindingResult) {
 
@@ -43,11 +49,6 @@ public class ChefController {
 		return "chefForm.html";
 	}
 
-	@GetMapping("/admin/chefForm")
-	public String getChefForm(Model model) {
-		model.addAttribute("chef", new Chef());
-		return "chefForm.html";
-	}
 
 	@GetMapping("/admin/chefDelete/{id}")
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
