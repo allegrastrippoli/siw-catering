@@ -12,10 +12,10 @@ a {
     color: #34261b;
 }
 
-h2 {
-    text-align: center;
-}
 
+#this-box > * {
+    flex: 1;
+}
 
 #this-box {
     position: absolute;
@@ -26,23 +26,23 @@ h2 {
     transform: translate(-50%, -50%);
     border-radius: 10px;
 
-}
 
-#this-box > * {
-    flex: 1;
-}
-
-#this-box {
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    gap: 2rem;
+    flex-direction: column; /*instead of row*/
+    flex-grow: 1; /*this property specifies how much of the remaining space in the flex container should be assigned to the item */
+    flex-wrap: wrap; /*se non c'è spazio va a capo*/
+    gap: 2rem; /*column gap*/
 
+}
+
+.grad {
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    background:   #e0ebef;
 }
 
 input {
-
     font-size: 16px;
     border: none;
     border-bottom: 1px solid #34261b;
@@ -76,25 +76,13 @@ fieldset {
     padding: 10px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 80%;
     margin: 4px 2px;
     cursor: pointer;
 }
 
 
-.grad {
-    text-align: center;
-    border-radius: 10px;
-    padding: 20px;
-    background:   #e0ebef;
-    /*
-    background: -webkit-linear-gradient(left, #b7b2ad , #cfd9db);
-    background: -o-linear-gradient(right,  #b7b2ad, #cfd9db);
-    background: -moz-linear-gradient(right, #b7b2ad,#cfd9db);
-    background: linear-gradient(to right, #b7b2ad, #cfd9db);
-    */
-}
+
 
 .link-settings {
     margin-top: 10px;
@@ -102,9 +90,19 @@ fieldset {
 }
 
 #margin-settings {
+
+    /*
+        top:20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position:absolute;
+      border-radius: 10px;
+      background: #e0ebef;
+  */
     padding: 20px;
     text-align: center;
 }
+
 
 
 

@@ -6,56 +6,38 @@ body {
 }
 
 #grad {
-    background:  #c8cdd1; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left, #a28d83 , #c8cdd1); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right,  #a28d83, #c8cdd1); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #a28d83,#c8cdd1); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right,  #a28d83, #c8cdd1); /* Standard syntax */
+    background:  #e0ebef; /* for browsers that do not support gradients */
+    background: linear-gradient(to right,  #ABB0C6, #e0ebef);
+
+    /*background: -webkit-linear-gradient(left, #a28d83 , #c8cdd1); for Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(right,  #a28d83, #c8cdd1); for Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(right, #a28d83,#c8cdd1); for Firefox 3.6 to 15 */
 }
 
 a {
-  color: #592c4d;
+    color: #592c4d;
+}
+
+.login-box {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 10px;
 }
 
 
-/*
-  .login-box {
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: white;
-    box-sizing: border-box;
-    border-radius: 10px;
-  }
-
-*/
-  .login-box {
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    border-radius: 10px;
-  }
-
-
-
-.login-box h2 {
-    margin: 0 0 30px;
-    padding: 0;
-    color: #592c4d;
+ h2 {
+    margin: 0 0 30px; /* 0 top 0 right 30 bottom margin*/
     text-align: center;
 }
 
-
-.login-box .user-box input {
+ input {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
@@ -70,7 +52,7 @@ a {
     background-color: #592c4d;
     border-radius: 1000px;
     border: none;
-    color: #c8cdd1;
+    color: #e0ebef;
     padding: 10px 32px;
     text-align: center;
     text-decoration: none;
@@ -89,6 +71,7 @@ a {
     padding: 20px;
     text-align: center;
 }
+
 
 
 

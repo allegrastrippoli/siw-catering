@@ -17,22 +17,19 @@ a {
   /*  background-color: rgba(255, 255, 255, 0.3); */
     background-color: #e0ebef;
     text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: absolute; /*si posiziona in base all'antenato più vicino. Se non ha antenati
+     utilizza il corpo del documento e si sposta insieme allo scorrimento della pagina*/
+    top: 50%; /*50% più in basso*/
+    left: 50%; /*50% più a destra*/
     width: 400px;
     padding: 20px;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /*50% più a sinistra 50% più in alto
+    A stacking context will be created.
+    In that case, the element will act
+    as a containing block for any position: fixed;
+    or position: absolute; elements that it contains.*/
     border-radius: 10px;
 
 }
 
-.link-settings {
-    margin-top: 10px;
-    font-size: 70%
-}
 
-#margin-settings {
-    padding: 20px;
-    text-align: center;
-}

@@ -8,10 +8,6 @@ body {
     margin: 20px 50px 10px 50px
 }
 
-h2 {
-    text-align: center;
-    color: #3f4b57;
-}
 
 a {
     color: #3f4b57;
@@ -27,12 +23,7 @@ a {
     border-radius: 10px;
     padding: 20px;
     background: #e0ebef;
-    /*
-    background: -webkit-linear-gradient(left, #86cdd4 , #c8cdd1); 
-    background: -o-linear-gradient(right,  #86cdd4, #c8cdd1); 
-    background: -moz-linear-gradient(right, #86cdd4,#c8cdd1); 
-    background: linear-gradient(to right, #86cdd4, #c8cdd1); 
-    */
+
 }
 
 
@@ -55,7 +46,16 @@ a {
 }
 
 #margin-settings {
+    /*
+        top:20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position:absolute;
+      border-radius: 10px;
+      background: #e0ebef;
+  */
     padding: 20px;
     text-align: center;
 }
+
 
