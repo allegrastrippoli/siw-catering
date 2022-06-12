@@ -1,0 +1,61 @@
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url(../images/buffet.jpg);
+    font-family: Avenir;
+    color: #3f4b57;
+    margin: 20px 50px 10px 50px
+}
+
+h2 {
+    text-align: center;
+    color: #3f4b57;
+}
+
+a {
+    color: #3f4b57;
+}
+
+
+.title-settings {
+    font-weight: bold;
+
+}
+
+.child-flex {
+    border-radius: 10px;
+    padding: 20px;
+    background: #e0ebef;
+    /*
+    background: -webkit-linear-gradient(left, #86cdd4 , #c8cdd1); 
+    background: -o-linear-gradient(right,  #86cdd4, #c8cdd1); 
+    background: -moz-linear-gradient(right, #86cdd4,#c8cdd1); 
+    background: linear-gradient(to right, #86cdd4, #c8cdd1); 
+    */
+}
+
+
+.basic-flex {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+}
+
+.basic-flex > * {
+    flex: 1;
+}
+
+.link-settings {
+    margin-top: 10px;
+    font-size: 70%
+}
+
+#margin-settings {
+    padding: 20px;
+    text-align: center;
+}
+

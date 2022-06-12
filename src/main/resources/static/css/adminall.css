@@ -1,13 +1,15 @@
 body {
     background-size: cover;
-    background-image: url(../images/caffe.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url(../images/buffet.jpg);
     font-family: Avenir;
-    color: #16565c;
+    color: #34261b;
     margin: 20px 50px 10px 50px
 }
 
 a {
-    color: black;
+    color: #34261b;
 }
 
 h2 {
@@ -43,7 +45,7 @@ input {
 
     font-size: 16px;
     border: none;
-    border-bottom: 1px solid #16565c;
+    border-bottom: 1px solid #34261b;
     outline: none;
     background: transparent;
 }
@@ -51,9 +53,9 @@ input {
 select {
 
     border: none;
-    border-bottom: 1px solid #16565c;
+    border-bottom: 1px solid #34261b;
     outline: none;
-    background: #86cdd4;
+    background: #e0ebef;
 
 }
 
@@ -63,14 +65,14 @@ fieldset {
     margin: 10px;
     border: none;
     outline: none;
-    background: #86cdd4;
+    background: #b7b2ad;
 }
 
 .button {
-    background-color: #16565c;
+    background-color: #34261b;
     border-radius: 1000px;
     border: none;
-    color: white;
+    color: #e0ebef;
     padding: 10px 32px;
     text-align: center;
     text-decoration: none;
@@ -85,11 +87,13 @@ fieldset {
     text-align: center;
     border-radius: 10px;
     padding: 20px;
-    background:   #c8cdd1; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left, #86cdd4 , #c8cdd1); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right,  #86cdd4, #c8cdd1); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #86cdd4,#c8cdd1); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #86cdd4, #c8cdd1); /* Standard syntax */
+    background:   #e0ebef;
+    /*
+    background: -webkit-linear-gradient(left, #b7b2ad , #cfd9db);
+    background: -o-linear-gradient(right,  #b7b2ad, #cfd9db);
+    background: -moz-linear-gradient(right, #b7b2ad,#cfd9db);
+    background: linear-gradient(to right, #b7b2ad, #cfd9db);
+    */
 }
 
 .link-settings {
@@ -101,6 +105,7 @@ fieldset {
     padding: 20px;
     text-align: center;
 }
+
 
 
 

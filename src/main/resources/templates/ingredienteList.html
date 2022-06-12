@@ -3,36 +3,41 @@
   <head>
     <title>Ingrediente</title>
     <link
-      th:href="@{/css/index.css}"
+      th:href="@{/css/list.css}"
       rel="stylesheet"
-      href="../../static/css/index.css"
+      href="../../static/css/list.css"
     />
   </head>
   <body>
-
     <div class="basic-flex">
-        <div th:each="ingrediente : ${ingredienti}">
-                <div class="child-flex">
+      <div th:each="ingrediente : ${ingredienti}">
+        <div class="child-flex">
+          <div class="title-settings" th:text="${ingrediente.nome}"></div>
+          <div>
+            <span>from: </span><span th:text="${ingrediente.origine}"></span>
+          </div>
+          <div th:text="${ingrediente.descrizione}"></div>
 
-                      <div class="title-settings" th:text="${ingrediente.nome}"> </div>
-                      <div><span>from: </span><span th:text="${ingrediente.origine}"></span></div>
-                      <div th:text="${ingrediente.descrizione}"></div>
-
-                      <div class="link-settings">
-                          <div>
-                              <a th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}">dettagli ingrediente</a>
-                          </div>
-                      <div>
-                        <a th:href="@{'/admin/ingredienteDelete' + '/' + ${ingrediente.id}}"
-                          >cancella ingrediente</a>
-                      </div>
-                      <div>
-                        <a th:href="@{'/admin/ingredienteEdit' + '/' + ${ingrediente.id}}"
-                          >modifica ingrediente</a>
-                      </div>
-                </div>
+          <div class="link-settings">
+            <div>
+              <a th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
+                >dettagli ingrediente</a
+              >
+            </div>
+            <div>
+              <a
+                th:href="@{'/admin/ingredienteDelete' + '/' + ${ingrediente.id}}"
+                >cancella ingrediente</a
+              >
+            </div>
+            <div>
+              <a th:href="@{'/admin/ingredienteEdit' + '/' + ${ingrediente.id}}"
+                >modifica ingrediente</a
+              >
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     </div>
     <footer id="margin-settings">
       <div class="link-settings">
