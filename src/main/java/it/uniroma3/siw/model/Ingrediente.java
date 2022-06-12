@@ -14,13 +14,13 @@ public class Ingrediente {
 	private long id;
 	
 	@NotBlank
-	String nome;
+	private String nome;
 	
 	@NotBlank
-	String origine; 
+	private String origine;
 	
 	@NotBlank
-	String descrizione;
+	private String descrizione;
 
 	public long getId() {
 		return id;

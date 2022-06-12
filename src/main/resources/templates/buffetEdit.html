@@ -18,11 +18,11 @@
     <h2>Inserisci buffet: </h2>
     <div>
         nome: <input type="text" th:field="*{nome}" th:value="*{nome}" />
-        <div th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></div>
+        <span th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></span>
     </div>
     <div>
         descrizione: <input type="text" th:field="*{descrizione}" th:value="*{descrizione}"/>
-        <div th:errors="*{descrizione}" th:if="${#fields.hasErrors('descrizione')}"></div>
+        <span th:errors="*{descrizione}" th:if="${#fields.hasErrors('descrizione')}"></span>
     </div>
     <div>
 

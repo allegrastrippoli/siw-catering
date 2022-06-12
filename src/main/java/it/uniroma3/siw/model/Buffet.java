@@ -12,13 +12,13 @@ public class Buffet {
 	private Long id;
 	
 	@NotBlank
-	String nome;
+	private String nome;
 	
 	@NotBlank
-	String descrizione;
+	private String descrizione;
 
 	@ManyToMany
-	List<Piatto> piatti;
+	private List<Piatto> piatti;
 
 	@ManyToOne
 	Chef chef;

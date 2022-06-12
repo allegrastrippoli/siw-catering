@@ -38,22 +38,22 @@ public class PiattoController {
     @GetMapping("/admin/piattoForm")
     public String getPiattoForm(Model model) {
         model.addAttribute("piatto", new Piatto());
-        model.addAttribute("ingradienti", ingredienteService.findAll());
+        model.addAttribute("ingredienti", ingredienteService.findAll());
         return "piattoForm.html";
     }
 
     @PostMapping("/admin/piatto")
-    public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, Model model, BindingResult bindingResult) {
+    public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, BindingResult bindingResult, Model model) {
 
         piattoValidator.validate(piatto, bindingResult);
 
         if(!bindingResult.hasErrors()) {
             piattoService.save(piatto);
             model.addAttribute("piatto", piatto);
-            model.addAttribute("ingradienti", piatto.getIngredienti());
+            model.addAttribute("ingredienti", piatto.getIngredienti());
             return "piatto.html";
         }
-        model.addAttribute("ingradienti", ingredienteService.findAll());
+        model.addAttribute("ingredienti", ingredienteService.findAll());
         return "piattoForm.html";
     }
 
@@ -77,7 +77,7 @@ public class PiattoController {
 
     @Transactional
     @PostMapping("/admin/piattoEdited/{id}")
-    public String editedPiatto(@PathVariable("id") Long id, @Valid @ModelAttribute Piatto piatto, Model model, BindingResult bindingResult) {
+    public String editedPiatto(@PathVariable("id") Long id, @Valid @ModelAttribute Piatto piatto, BindingResult bindingResult, Model model) {
 
         if(!bindingResult.hasErrors()) {
 

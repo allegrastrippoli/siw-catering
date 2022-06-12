@@ -37,7 +37,7 @@ public class ChefController {
 	}
 
 	@PostMapping("/admin/chef")
-	public String addChef(@Valid @ModelAttribute("chef") Chef chef, Model model, BindingResult bindingResult) {
+	public String addChef(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {
 
 		chefValidator.validate(chef, bindingResult);
 

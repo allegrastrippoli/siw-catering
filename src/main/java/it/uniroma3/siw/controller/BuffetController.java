@@ -45,7 +45,7 @@ public class BuffetController {
 	}
 
 	@PostMapping("/admin/buffet")
-	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, Model model, BindingResult bindingResult) {
+	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult, Model model) {
 
 		buffetValidator.validate(buffet, bindingResult);
 

@@ -2,6 +2,7 @@ package it.uniroma3.siw.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -12,13 +13,13 @@ public class Piatto {
 	private long id;
 
 	@NotBlank
-	String nome;
+	private String nome;
 	
 	@NotBlank
-	String descrizione;
-	
+	private String descrizione;
+
 	@ManyToMany
-	List<Ingrediente> ingredienti;
+	private List<Ingrediente> ingredienti;
 
 
 	public Long getId() {

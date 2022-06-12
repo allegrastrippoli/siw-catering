@@ -38,7 +38,7 @@ public class IngredienteController {
 
 
 	@PostMapping("/admin/ingrediente")
-	public String addIngrediente(@Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, Model model, BindingResult bindingResults) {
+	public String addIngrediente(@Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResults, Model model) {
 
 		ingredienteValidator.validate(ingrediente, bindingResults);
 
@@ -69,7 +69,7 @@ public class IngredienteController {
 
 	@Transactional
 	@PostMapping("/admin/ingredienteEdited/{id}")
-	public String editedIngrediente(@PathVariable Long id, @Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, Model model, BindingResult bindingResult) {
+	public String editedIngrediente(@PathVariable Long id, @Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResult, Model model) {
 
 		if(!bindingResult.hasErrors()) {
 		Ingrediente oldingrediente = ingredienteService.findById(id);
