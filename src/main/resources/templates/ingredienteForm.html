@@ -7,6 +7,9 @@
 </head>
 <body>
 <form th:action="@{/admin/ingrediente}" method="post" th:object="${ingrediente}">
+    <div th:if="${#fields.hasGlobalErrors()}">
+        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
+    </div>
 
     <div id = "this-box" class = "grad">
     <h2>Inserisci ingrediente: </h2>

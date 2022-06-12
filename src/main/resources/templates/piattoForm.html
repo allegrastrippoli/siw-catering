@@ -8,6 +8,9 @@
 <body>
 <!--/*@thymesVar id="piatto" type="it.uniroma3.siw.model.Piatto"*/-->
 <form th:action="@{/admin/piatto}" method="post" th:object="${piatto}">
+    <div th:if="${#fields.hasGlobalErrors()}">
+        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
+    </div>
 
     <div id = "this-box" class = "grad">
     <h2>Inserisci piatto: </h2>
