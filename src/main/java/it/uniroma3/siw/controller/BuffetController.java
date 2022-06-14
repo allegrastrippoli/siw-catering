@@ -81,7 +81,7 @@ public class BuffetController {
 
 	@Transactional
 	@PostMapping("/admin/buffetEdited/{id}")
-	public String editChef(@PathVariable Long id, @Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResults, Model model) {
+	public String editedBuffef(@PathVariable Long id, @Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResults, Model model) {
 
 		if(!bindingResults.hasErrors()) {
 			Buffet oldBuffet = buffetService.findById(id);
@@ -101,7 +101,7 @@ public class BuffetController {
 
 
 	@GetMapping("/admin/buffetEdit/{id}")
-	public String modifyBuffet(@PathVariable("id") Long id, Model model) {
+	public String editBuffet(@PathVariable("id") Long id, Model model) {
 		Buffet buffet = buffetService.findById(id);
 		model.addAttribute("buffet", buffet);
 		model.addAttribute("chefList", chefService.findAll());
