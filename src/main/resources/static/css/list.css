@@ -19,12 +19,6 @@ a {
 
 }
 
-.child-flex {
-    border-radius: 10px;
-    padding: 20px;
-    background: #e0ebef;
-
-}
 
 
 .basic-flex {
@@ -38,6 +32,13 @@ a {
 
 .basic-flex > * {
     flex: 1;
+}
+
+.child-flex {
+    border-radius: 10px;
+    padding: 20px;
+    background: #e0ebef;
+
 }
 
 .link-settings {

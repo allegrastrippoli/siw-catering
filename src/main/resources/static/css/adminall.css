@@ -13,11 +13,11 @@ a {
 }
 
 
-#this-box > * {
+#basic-flex > * {
     flex: 1;
 }
 
-#this-box {
+#basic-flex {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -35,7 +35,7 @@ a {
 
 }
 
-.grad {
+.child-flex {
     text-align: center;
     border-radius: 10px;
     padding: 20px;

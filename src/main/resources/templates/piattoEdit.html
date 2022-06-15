@@ -13,7 +13,7 @@
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
     </div>
 
-    <div id = "this-box" class = "grad">
+    <div id = "basic-flex" class = "child-flex">
     <h2>Inserisci piatto: </h2>
     <div>
         nome: <input type="text" th:field="*{nome}" th:value="*{nome}" />
