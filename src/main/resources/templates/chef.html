@@ -23,7 +23,11 @@
           </div>
         </div>
 
-        <div class="child-flex">
+        <div class="child-flex" th:unless="${!chef.buffets.isEmpty()}">
+          <div>Nessun buffet disponibile</div>
+        </div>
+
+        <div class="child-flex" th:if="${!chef.buffets.isEmpty()}">
           <div th:each="buffet : ${chef.buffets}">
             <a
               th:href="@{'/buffet' + '/' + ${buffet.id}}"
