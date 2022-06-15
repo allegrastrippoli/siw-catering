@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Inserimento ingradiente</title>
+    <title>Inserimento ingrediente</title>
     <link th:href="@{/css/adminall.css}" rel="stylesheet" href="../../static/css/adminall.css">
 </head>
 <body>
@@ -24,14 +24,7 @@
 
 
     <div><button class="button" type="submit"/>Conferma</button></div>
-    <footer id="margin-settings">
-        <div class="link-settings">
-          <a th:href="@{/allindex}" href="/allindex.html">User's home</a>
-        </div>
-        <div class="link-settings">
-          <a th:href="@{/adminindex}" href="/adminindex.html">Admin's home</a>
-        </div>
-      </footer>
+        <div th:replace="footer :: footer"></div>
     </div>
 </form>
 </body>
