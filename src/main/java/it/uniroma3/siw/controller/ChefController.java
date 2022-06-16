@@ -1,6 +1,7 @@
 package it.uniroma3.siw.controller;
 
 import it.uniroma3.siw.model.Chef;
+import it.uniroma3.siw.model.Ingrediente;
 import it.uniroma3.siw.service.ChefService;
 import it.uniroma3.siw.validator.ChefValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,15 +62,20 @@ public class ChefController {
 	@PostMapping("/admin/chefEdited/{id}")
 	public String editedChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
 
+		Chef oldChef = chefService.findById(id);
+
+		if(!chef.getNome().equals(oldChef.getNome()))
+			chefValidator.validate(chef, bindingResults);
+
 		if(!bindingResults.hasErrors()) {
-			Chef oldChef = chefService.findById(id);
+
 			oldChef.setId(chef.getId());
 			oldChef.setNome(chef.getNome());
 			oldChef.setCognome(chef.getCognome());
 			oldChef.setNazionalita(chef.getNazionalita());
-
+			oldChef.setBuffets(chef.getBuffets());
 			this.chefService.save(oldChef);
-			model.addAttribute("chef", chef);
+			model.addAttribute("chef", oldChef);
 			return "chef.html";
 		}
 			return "chefEdit.html";
@@ -86,7 +92,8 @@ public class ChefController {
 
 	@GetMapping("/chef/{id}")
 	public String getChef(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("chef", chefService.findById(id));
+		Chef chef = chefService.findById(id);
+		model.addAttribute("chef", chef);
 		return "chef.html";
 	}
 

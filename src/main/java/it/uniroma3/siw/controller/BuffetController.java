@@ -83,8 +83,13 @@ public class BuffetController {
 	@PostMapping("/admin/buffetEdited/{id}")
 	public String editedBuffef(@PathVariable Long id, @Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResults, Model model) {
 
+		Buffet oldBuffet = buffetService.findById(id);
+
+		if(!buffet.getNome().equals(oldBuffet.getNome()))
+			buffetValidator.validate(buffet, bindingResults);
+
 		if(!bindingResults.hasErrors()) {
-			Buffet oldBuffet = buffetService.findById(id);
+
 			oldBuffet.setId(buffet.getId());
 			oldBuffet.setNome(buffet.getNome());
 			oldBuffet.setDescrizione(buffet.getDescrizione());
@@ -92,7 +97,7 @@ public class BuffetController {
 			oldBuffet.setPiatti(buffet.getPiatti());
 
 			this.buffetService.save(oldBuffet);
-			model.addAttribute("buffet", buffet);
+			model.addAttribute("buffet", oldBuffet);
 			return "buffet.html";
 		}
 		return "buffetEdit.html";

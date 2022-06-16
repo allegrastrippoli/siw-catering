@@ -71,15 +71,18 @@ public class IngredienteController {
 	@PostMapping("/admin/ingredienteEdited/{id}")
 	public String editedIngrediente(@PathVariable Long id, @Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResult, Model model) {
 
-		if(!bindingResult.hasErrors()) {
 		Ingrediente oldingrediente = ingredienteService.findById(id);
 
+		if(!ingrediente.getNome().equals(oldingrediente.getNome()))
+			ingredienteValidator.validate(ingrediente, bindingResult);
+
+		if(!bindingResult.hasErrors()) {
 		oldingrediente.setNome(ingrediente.getNome());
 		oldingrediente.setOrigine(ingrediente.getOrigine());
 		oldingrediente.setDescrizione(ingrediente.getDescrizione());
 
 		ingredienteService.save(oldingrediente);
-		model.addAttribute("ingrediente", ingrediente);
+		model.addAttribute("ingrediente", oldingrediente);
 		return "ingrediente.html";
 		}
 		return "ingredienteEdit.html";

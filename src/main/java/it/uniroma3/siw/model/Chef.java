@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,6 +28,10 @@ public class Chef {
 
 	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "chef")
 	List<Buffet> buffets;
+
+	public Chef() {
+		buffets = new ArrayList<>();
+	}
 
 	public List<Buffet> getBuffets() {
 		return buffets;
