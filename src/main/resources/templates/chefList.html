@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
   <head>
     <title>Chef list</title>
     <link
@@ -13,18 +13,20 @@
     <div class="basic-flex">
     <div th:each="chef : ${chef}">
       <div class="child-flex">
-      <div class="title-settings" th:text="${chef.nome} + ' ' + ${chef.cognome}"></div>
-      <div th:text="${chef.nazionalita}"> </div>
+      <h2 class="title-settings" th:text="|${chef.nome} ${chef.cognome}|"></h2>
+      <div th:text="|Nazionaltà: ${chef.nazionalita}|"> </div>
 
       <div class="link-settings">
         <div>
           <a th:href="@{'/chef' + '/' + ${chef.id}}">dettagli chef</a>
         </div>
       <div>
-        <a th:href="@{'/admin/chefDelete' + '/' + ${chef.id}}">cancella chef</a>
+        <a sec:authorize="isFullyAuthenticated()"
+           th:href="@{'/admin/chefDelete' + '/' + ${chef.id}}">cancella chef</a>
       </div>
       <div>
-        <a th:href="@{'/admin/chefEdit' + '/' + ${chef.id}}">modifica chef</a>
+        <a sec:authorize="isFullyAuthenticated()"
+           th:href="@{'/admin/chefEdit' + '/' + ${chef.id}}">modifica chef</a>
       </div>
       </div>
     </div>

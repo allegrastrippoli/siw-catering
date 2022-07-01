@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Demo</title>
-    <link
-      th:href="@{/css/trueindex.css}"
-      rel="stylesheet"
-      href="../../static/css/trueindex.css"
-    />
-  </head>
-  <body>
-    <div class="this-box">
-      <h2>Catering</h2>
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo</title>
+  <link
+          th:href="@{/css/trueindex.css}"
+          rel="stylesheet"
+          href="../../static/css/trueindex.css"
+  />
+</head>
+<body>
+<div class="this-box">
 
-      <div>Benvenuto! Per vedere tutti i piatti e buffet offerti dai migliori chef basta un click... </div>
 
-      <h4>Spazio utenti</h4>
-      <div><span> Clicca qui: </span><a th:href="@{/allindex}">naviga</a></div>
+  <h1>Catering</h1>
 
-      <h4>Spazio admin</h4>
-      <div><span> Clicca qui: </span><a th:href="@{/login}">login</a></div>
+  <div class="fix-div">Benvenuto! Per vedere tutti i piatti e buffet offerti dai migliori chef basta un click... </div>
 
-      <!--h4>Registrati</h4>
-      <div><span> Clicca qui: </span><a th:href="@{/register}">registrati</a></div-->
-      <!--hr-->
-    </div>
-  </body>
+
+  <a class="button" th:href="@{/allindex}">naviga</a>
+
+  <a class="button" th:href="@{/login}">login</a>
+
+  <!--h2>Registrati</h2>
+  <h4><span> Clicca qui: </span><a th:href="@{/register}">registrati</a></h4-->
+</div>
+</body>
 </html>
+
+

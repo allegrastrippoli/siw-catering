@@ -25,7 +25,7 @@ a {
     padding: 40px;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    /* display: flex; */
+    display: flex;
     flex-direction: column; /*instead of row*/
     flex-grow: 1; /*this property specifies how much of the remaining space in the flex container should be assigned to the item */
     flex-wrap: wrap; /*se non c'è spazio va a capo*/
@@ -97,7 +97,7 @@ fieldset {
       border-radius: 10px;
       background: #e0ebef;
   */
-    //padding: 20px;
+//padding: 20px;
     text-align: center;
 }
 

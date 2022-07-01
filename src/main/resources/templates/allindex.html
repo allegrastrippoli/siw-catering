@@ -9,20 +9,15 @@
 <body>
 <div id="basic-flex">
 
-    <div class="child-flex"><a th:href="@{/chefList}">lista chef</a></div>
+    <h3 class="child-flex"><a th:href="@{/chefList}">lista chef</a></h3>
 
-<div class="child-flex">
-    <div><a th:href="@{/buffetList}">lista buffet</a></div>
-</div>
+    <h3  class="child-flex"><a th:href="@{/buffetList}">lista buffet</a></h3>
 
-<div class="child-flex">
-    <div><a th:href="@{/piattoList}">lista piatti</a></div>
-</div>
+    <h3 class="child-flex"><a th:href="@{/piattoList}">lista piatti</a></h3>
 
-<div class="child-flex">
-    <div><a th:href="@{/ingredienteList}">lista ingredienti</a></div>
-</div>
-    <div th:replace="footer :: footer"></div>
+    <h3 class="child-flex"><a th:href="@{/ingredienteList}">lista ingredienti</a></h3>
+
+    <footer th:replace="footer :: footer"></footer>
 </div>
 </div>
 </body>

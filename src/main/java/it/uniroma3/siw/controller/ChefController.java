@@ -2,6 +2,7 @@ package it.uniroma3.siw.controller;
 
 import it.uniroma3.siw.model.Chef;
 import it.uniroma3.siw.model.Ingrediente;
+import it.uniroma3.siw.service.BuffetService;
 import it.uniroma3.siw.service.ChefService;
 import it.uniroma3.siw.validator.ChefValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class ChefController {
 
 	@Autowired
 	private ChefValidator chefValidator;
+
+	@Autowired
+	private BuffetService buffetService;
 
 
 	/*GET per lettura
@@ -50,11 +54,17 @@ public class ChefController {
 		return "chefForm.html";
 	}
 
-
 	@GetMapping("/admin/chefDelete/{id}")
+	public String  confirmDeleteChef (@PathVariable("id") Long id, Model model) {
+		model.addAttribute("chef", this.chefService.findById(id));
+		return "chefDelete.html";
+	}
+
+
+	@PostMapping("/admin/chefDelete/{id}")
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
 		chefService.deleteById(id);
-		return "adminindex.html";
+		return "chefSuccess.html";
 
 	}
 
@@ -90,6 +100,8 @@ public class ChefController {
 		return "chefEdit.html";
 	}
 
+
+
 	@GetMapping("/chef/{id}")
 	public String getChef(@PathVariable("id") Long id, Model model) {
 		Chef chef = chefService.findById(id);
@@ -98,9 +110,17 @@ public class ChefController {
 	}
 
 
+
+
 	@GetMapping("/chefList")
 	public String getChefList( Model model) {
-		List<Chef>chef= chefService.findAll();
+		//List<Chef>chef= chefService.findAll();
+		//model.addAttribute("chef", chef);
+
+		//Long howmany= chefService.Count();
+		//model.addAttribute("howmany", howmany);
+
+		List<Chef> chef= chefService.findAllByOrderByCognomeAsc();
 		model.addAttribute("chef", chef);
 		return "chefList.html";
 	}

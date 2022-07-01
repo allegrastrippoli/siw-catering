@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Piatto delete</title>
+    <link th:href="@{/css/form.css}" rel="stylesheet" href="../../static/css/form.css">
+</head>
+<body>
+
+<div>
+
+    <div id="basic-flex">
+        <div class = "child-flex">
+            <p th:text="'Elimina: ' + ${piatto.nome}"></p>
+            <form method="POST" th:action="@{'/admin/piattoDelete' + '/' + ${piatto.id}}" th:object="${piatto}">
+                <button class="button" type="submit">Confirm</button>
+                <a class="button" th:href="@{'/piattoList'}" th:text="Cancel">Cancel</a>
+            </form>
+        </div>
+        <div th:replace="footer :: footer"></div>
+    </div>
+
+
+</div>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
   <head>
     <title>Buffet list</title>
     <link
@@ -12,7 +12,7 @@
     <div class="basic-flex">
       <div th:each="buffet : ${buffet}">
         <div class="child-flex">
-          <div class="title-settings" th:text="${buffet.nome}"></div>
+          <h2 class="title-settings" th:text="${buffet.nome}"></h2>
           <div th:text="${buffet.descrizione}"></div>
 
           <div class="link-settings">
@@ -20,12 +20,14 @@
               <a th:href="@{'/buffet' + '/' + ${buffet.id}}">dettagli buffet</a>
             </div>
             <div>
-              <a th:href="@{'/admin/buffetDelete' + '/' + ${buffet.id}}"
+              <a sec:authorize="isFullyAuthenticated()"
+                 th:href="@{'/admin/buffetDelete' + '/' + ${buffet.id}}"
                 >cancella buffet</a
               >
             </div>
             <div>
-              <a th:href="@{'/admin/buffetEdit' + '/' + ${buffet.id}}"
+              <a sec:authorize="isFullyAuthenticated()"
+                 th:href="@{'/admin/buffetEdit' + '/' + ${buffet.id}}"
                 >modifica buffet</a
               >
             </div>

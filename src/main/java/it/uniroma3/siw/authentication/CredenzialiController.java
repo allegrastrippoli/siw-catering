@@ -17,9 +17,17 @@ public class CredenzialiController {
     @Autowired
     private CredenzialiService credenzialiService;
 
+    @Autowired
+    private CredenzialiValidator credenzialiValidator;
+
     @GetMapping("/login")
     public String getLoginForm(Model model) {
         return "login.html";
+    }
+
+    @GetMapping("/logout")
+    public String getLogoutForm(Model model) {
+        return "index.html";
     }
 
     @GetMapping("/register")
@@ -30,6 +38,9 @@ public class CredenzialiController {
 
     @PostMapping("/register")
     public String register (@Valid @ModelAttribute("credenziali") Credenziali credenziali, BindingResult bindingResult, Model model) {
+
+        credenzialiValidator.validate(credenziali, bindingResult);
+
         if (!bindingResult.hasErrors()) {
             this.credenzialiService.saveCredenziali(credenziali);
             return "login.html";
@@ -44,11 +55,9 @@ public class CredenzialiController {
         UserDetails adminDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Credenziali credentials = credenzialiService.getCredenziali(adminDetails.getUsername());
         if (credentials.getRole().equals(Credenziali.ADMIN_ROLE)) {
-            //return "redirect:/admin";
-            return "adminindex.html";
+            return "redirect:/adminindex";
         }
-        //return "redirect:/login";
-        return "allindex.html";
+        return "redirect:/allindex";
     }
 
     @GetMapping("/allindex")

@@ -45,7 +45,17 @@ public class ChefService {
         return chefs;
     }
 
+    public List<Chef> findByNomeOrderByCognomeAsc(String nome) {
+        return chefRepository.findByNomeOrderByCognomeAsc(nome);
+    }
 
+    public List<Chef> findAllByOrderByCognomeAsc() {
+        return chefRepository.findAllByOrderByCognomeAsc();
+    }
+
+    public long Count() {
+        return chefRepository.count();
+    }
 
 
 }

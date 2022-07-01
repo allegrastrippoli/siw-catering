@@ -53,8 +53,24 @@ public class IngredienteController {
 
 
 	@GetMapping("/admin/ingredienteDelete/{id}")
+	public String  confirmDeleteIngrediente (@PathVariable("id") Long id, Model model) {
+		model.addAttribute("ingrediente", this.ingredienteService.findById(id));
+		return "ingredienteDelete.html";
+	}
+
+
+	@PostMapping("/admin/ingredienteDelete/{id}")
 	public String deleteIngrediente(@PathVariable("id") Long id, Model model) {
 
+		try {
+			ingredienteService.deleteById(id);
+			return "ingredienteSuccess.html";
+		}
+		catch (Exception e) {
+			return "error.html";
+		}
+
+		/*
 		Ingrediente ingrediente = ingredienteService.findById(id);
 		List<Piatto> piatti = piattoService.findAll();
 		for(Piatto p : piatti) {
@@ -65,6 +81,7 @@ public class IngredienteController {
 		}
 		ingredienteService.deleteById(id);
 		return "adminindex.html";
+		 */
 	}
 
 	@Transactional

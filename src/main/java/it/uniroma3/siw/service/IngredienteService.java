@@ -30,7 +30,7 @@ public class IngredienteService {
 	}
 
 	public boolean alreadyExists(Ingrediente ingrediente) {
-		return ingredienteRepository.existsById(ingrediente.getId());
+		return ingredienteRepository.existsByNome(ingrediente.getNome());
 	}
 
 	public List<Ingrediente> findAll() {
@@ -41,6 +41,5 @@ public class IngredienteService {
 		}
 		return ingredienti;
 	}
-	
 
 }

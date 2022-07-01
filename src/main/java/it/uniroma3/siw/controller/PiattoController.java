@@ -1,6 +1,7 @@
 package it.uniroma3.siw.controller;
 
 import it.uniroma3.siw.model.Buffet;
+import it.uniroma3.siw.model.Ingrediente;
 import it.uniroma3.siw.model.Piatto;
 import it.uniroma3.siw.service.BuffetService;
 import it.uniroma3.siw.service.IngredienteService;
@@ -57,11 +58,25 @@ public class PiattoController {
         return "piattoForm.html";
     }
 
-
-
     @GetMapping("/admin/piattoDelete/{id}")
+    public String  confirmDeletePiatto (@PathVariable("id") Long id, Model model) {
+        model.addAttribute("piatto", this.piattoService.findById(id));
+        return "piattoDelete.html";
+    }
+
+
+    @PostMapping("/admin/piattoDelete/{id}")
     public String deletePiatto(@PathVariable("id") Long id, Model model) {
 
+        try {
+            piattoService.deleteById(id);
+            return "piattoSuccess.html";
+        }
+        catch (Exception e) {
+            return "error.html";
+        }
+
+        /*
         Piatto piatto = piattoService.findById(id);
         List<Buffet> buffets = buffetService.findAll();
         for(Buffet b : buffets) {
@@ -72,6 +87,7 @@ public class PiattoController {
         }
         piattoService.deleteById(id);
         return "adminindex.html";
+         */
     }
 
 

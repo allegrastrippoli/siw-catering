@@ -2,6 +2,8 @@ package it.uniroma3.siw.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,6 +24,10 @@ public class Buffet {
 
 	@ManyToOne
 	Chef chef;
+
+	public Buffet() {
+		piatti = new ArrayList<>();
+	}
 
 	public Long getId() {
 		return id;

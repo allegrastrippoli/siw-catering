@@ -13,15 +13,9 @@
     <div>
       <div class="basic-flex">
         <div class="child-flex">
-          <div>
-            <span>Nome: </span><span th:text="${ingrediente.nome}"></span>
-          </div>
-          <div>
-            <span>Origine: </span><span th:text="${ingrediente.origine}"></span>
-          </div>
-          <div>
-            <span>Descrizione: </span
-            ><span th:text="${ingrediente.descrizione}"></span>
+          <h2 th:text="${ingrediente.nome}"></h2>
+          <div th:text="|Origine: ${ingrediente.origine}|"></div>
+          <div th:text="|Descrizione: ${ingrediente.descrizione}|"></div>
           </div>
         </div>
       </div>

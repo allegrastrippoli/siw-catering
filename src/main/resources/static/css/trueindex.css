@@ -14,7 +14,7 @@ a {
 
 
 .this-box {
-  /*  background-color: rgba(255, 255, 255, 0.3); */
+    /*  background-color: rgba(255, 255, 255, 0.3); */
     background-color: #e0ebef;
     text-align: center;
     position: absolute; /*si posiziona in base all'antenato più vicino. Se non ha antenati
@@ -22,14 +22,35 @@ a {
     top: 50%; /*50% più in basso*/
     left: 50%; /*50% più a destra*/
     width: 400px;
-    padding: 20px;
+    padding: 20px 30px 60px 30px;
     transform: translate(-50%, -50%); /*50% più a sinistra 50% più in alto
     A stacking context will be created.
     In that case, the element will act
     as a containing block for any position: fixed;
     or position: absolute; elements that it contains.*/
-    border-radius: 10px;
+    border-radius: 30px;
 
 }
+.fix-div {
+    padding: 0px 40px 50px 50px;
+
+}
+
+
+.button {
+    background-color: #16565c;
+    border-radius: 1000px;
+    border: none;
+    color: #e0ebef;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 80%;
+    margin: 0px 15px 30px ;
+    cursor: pointer;
+}
+
+
+
 
 

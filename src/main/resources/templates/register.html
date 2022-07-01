@@ -3,11 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Registrazione</title>
-    <link
-      th:href="@{/css/adminall.css}"
-      rel="stylesheet"
-      href="../../static/css/adminall.css"
-    />
+    <link th:href="@{/css/form.css}" rel="stylesheet" href="../../static/css/form.css">
   </head>
   <body>
     <div>
@@ -27,6 +23,7 @@
               placeholder="username"
               required
             />
+            <div th:errors="*{username}" th:if="${#fields.hasErrors('username')}"></div>
           </div>
           <div>
             <input
@@ -72,7 +69,18 @@
               placeholder="password"
               required
             />
+            <div th:errors="*{password}" th:if="${#fields.hasErrors('password')}"></div>
           </div>
+
+          <!--div>
+            <input
+                    name="conferma password"
+                    th:field="*{confermaPassword}"
+                    type="password"
+                    placeholder="conferma password"
+                    required
+            />
+          </div-->
 
           <div><button class="button" type="submit" />Conferma</div>
         </div>

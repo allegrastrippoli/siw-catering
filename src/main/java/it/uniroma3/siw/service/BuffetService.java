@@ -44,6 +44,12 @@ public class BuffetService {
         return buffets;
     }
 
+    public List<Buffet> findAllByOrderByChefAsc() {
+        return buffetRepository.findAllByOrderByChefAsc();
+    }
+
+    public long count() { return buffetRepository.count(); }
+
 
 
 }

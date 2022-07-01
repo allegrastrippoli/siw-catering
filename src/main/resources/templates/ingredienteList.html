@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.w3.org/1999/xhtml">
   <head>
     <title>Ingrediente list</title>
     <link
@@ -12,11 +12,8 @@
     <div class="basic-flex">
       <div th:each="ingrediente : ${ingredienti}">
         <div class="child-flex">
-          <div class="title-settings" th:text="${ingrediente.nome}"></div>
-          <div>
-            <span>from: </span><span th:text="${ingrediente.origine}"></span>
-          </div>
-          <div th:text="${ingrediente.descrizione}"></div>
+          <h2 class="title-settings" th:text="${ingrediente.nome}"></h2>
+            <div th:text="|from: ${ingrediente.origine}|"></div>
 
           <div class="link-settings">
             <div>
@@ -25,13 +22,14 @@
               >
             </div>
             <div>
-              <a
+              <a sec:authorize="isFullyAuthenticated()"
                 th:href="@{'/admin/ingredienteDelete' + '/' + ${ingrediente.id}}"
                 >cancella ingrediente</a
               >
             </div>
             <div>
-              <a th:href="@{'/admin/ingredienteEdit' + '/' + ${ingrediente.id}}"
+              <a sec:authorize="isFullyAuthenticated()"
+                 th:href="@{'/admin/ingredienteEdit' + '/' + ${ingrediente.id}}"
                 >modifica ingrediente</a
               >
             </div>

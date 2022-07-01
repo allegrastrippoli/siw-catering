@@ -13,23 +13,23 @@
     <div>
       <div class="basic-flex">
         <div class="child-flex">
-          <div>piatto:</div>
-          <div><span> Nome: </span><span th:text="${piatto.nome}"></span></div>
-          <div>
-            <span> Descrizione: </span
-            ><span th:text="${piatto.descrizione}"></span>
+         <h2 th:text="${piatto.nome}"></h2>
+           <div th:text="|Descrizione: ${piatto.descrizione}|"></div>
           </div>
+
+        <div class="child-flex" th:unless="${!piatto.ingredienti.isEmpty()}">
+          <div>Nessun ingrediente disponibile</div>
         </div>
 
-        <div class="child-flex">
-          <div>ingradiente:</div>
+        <div class="child-flex" th:if="${!piatto.ingredienti.isEmpty()}">
+            <div>ingradiente:</div>
 
-          <div th:each="ingrediente : ${piatto.ingredienti}">
-            <a
-              th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
-              th:text="${ingrediente.nome}"
-            ></a>
-          </div>
+            <div th:each="ingrediente : ${piatto.ingredienti}">
+              <a
+                th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
+                th:text="${ingrediente.nome}"
+              ></a>
+            </div>
         </div>
       </div>
     </div>

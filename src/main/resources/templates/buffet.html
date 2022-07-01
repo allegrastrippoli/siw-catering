@@ -13,29 +13,19 @@
     <div>
       <div class="basic-flex">
         <div class="child-flex">
-          <div>buffet:</div>
-          <div><span>Nome: </span><span th:text="${buffet.nome}"></span></div>
-          <div>
-            <span>Descrizione: </span
-            ><span th:text="${buffet.descrizione}"></span>
-          </div>
+         <h2 th:text="${buffet.nome}"></h2>
+         <div th:text="|Descrizione: ${buffet.descrizione}|"></div>
         </div>
 
         <div class="child-flex">
-          <div>chef:</div>
-          <div>
-            <span>Nome: </span><span th:text="${buffet.chef.nome}"></span>
-          </div>
-          <div>
-            <span>Cognome: </span><span th:text="${buffet.chef.cognome}"></span>
-          </div>
-          <div>
-            <span>Nazionalita: </span
-            ><span th:text="${buffet.chef.nazionalita}"></span>
-          </div>
+          <a th:href="@{'/chef/' + ${buffet.chef.id}}" th:text="|Chef: ${buffet.chef.nome}  ${buffet.chef.cognome}|"></a>
         </div>
 
-        <div class="child-flex">
+        <div class="child-flex" th:unless="${!buffet.piatti.isEmpty()}">
+          <div>Nessun piatto disponibile</div>
+        </div>
+
+        <div class="child-flex" th:if="${!buffet.piatti.isEmpty()}">
           <div>piatti:</div>
           <div th:each="piatto : ${buffet.piatti}">
             <a

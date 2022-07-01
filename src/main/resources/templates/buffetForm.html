@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Inserimento buffet</title>
-    <link th:href="@{/css/adminall.css}" rel="stylesheet" href="../../static/css/adminall.css">
+    <link th:href="@{/css/form.css}" rel="stylesheet" href="../../static/css/form.css">
 </head>
 <body>
 <!--/*@thymesVar id="buffet" type="it.uniroma3.siw.model.Buffet"*/-->
@@ -14,7 +14,6 @@
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
     </div>
 
-    <div>
         <div id = "basic-flex" class = "child-flex">
             <h2>Inserisci buffet: </h2>
             <div>nome:<input type="text" th:field="*{nome}" /></div>
@@ -30,7 +29,7 @@
                         <option value=""></option>
                         <option th:each="chef : ${chefs}"
                                 th:value="${chef.id}"
-                                th:text="${chef.nome}">
+                                th:text="|${chef.nome} ${chef.cognome} ${chef.nazionalita}|">
                         </option>
                     </select>
                 </div>

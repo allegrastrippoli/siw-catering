@@ -10,25 +10,19 @@
 
 <div id="basic-flex">
 
+    <h3 class="child-flex"><a  th:href="@{/admin/chefForm}">crea chef</a> <div><a th:href="@{/chefList}">lista chef</a></div></h3>
 
-<div  class="child-flex">
-    <div><a th:href="@{/admin/chefForm}">crea chef</a></div>
-    <div><a th:href="@{/chefList}">lista chef</a></div>
-</div>
-<div  class="child-flex">
-    <div><a th:href="@{/admin/buffetForm}">crea buffet</a></div>
-    <div><a th:href="@{/buffetList}">lista buffet</a></div>
-</div>
-<div  class="child-flex">
-    <div><a th:href="@{/admin/piattoForm}">crea piatto</a></div>
-    <div><a th:href="@{/piattoList}">lista piatti</a></div>
-</div>
-<div class="child-flex">
-    <div><a th:href="@{/admin/ingredienteForm}">crea ingrediente</a></div>
-    <div><a th:href="@{/ingredienteList}">lista ingredienti</a></div>
-    
-</div>
+    <h3 class="child-flex"><a th:href="@{/admin/buffetForm}">crea buffet</a> <div><a th:href="@{/buffetList}">lista buffet</a></div></h3>
+
+    <h3  class="child-flex"><a th:href="@{/admin/piattoForm}">crea piatto</a><div> <a th:href="@{/piattoList}">lista piatti</a></div></h3>
+
+    <h3  class="child-flex"><a th:href="@{/admin/ingredienteForm}">crea ingrediente</a><div><a th:href="@{/ingredienteList}">lista ingredienti</a></div></h3>
+
+
 <div th:replace="footer :: footer"></div>
+    <div class="link-settings" id="margin-settings">
+        <a th:href="@{/logout}">Logout</a>
+    </div>
    
 </div>
 </body>

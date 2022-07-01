@@ -61,10 +61,26 @@ public class BuffetController {
 	}
 
 
-
 	@GetMapping("/admin/buffetDelete/{id}")
+	public String  confirmDeleteChef (@PathVariable("id") Long id, Model model) {
+		model.addAttribute("buffet", this.buffetService.findById(id));
+		return "buffetDelete.html";
+	}
+
+
+
+	@PostMapping("/admin/buffetDelete/{id}")
 	public String deleteBuffet(@PathVariable("id") Long id, Model model) {
 
+		try {
+			buffetService.deleteById(id);
+			return "buffetSuccess.html";
+		}
+		catch (Exception e) {
+			return "error.html";
+		}
+
+		/*
 		Buffet buffet = buffetService.findById(id);
 		List<Chef> chef = chefService.findAll();
 		for(Chef c : chef) {
@@ -76,6 +92,7 @@ public class BuffetController {
 
 		buffetService.deleteById(id);
 		return "adminindex.html";
+		 */
 
 	}
 
@@ -122,6 +139,7 @@ public class BuffetController {
 
 	@GetMapping("/buffetList")
 	public String getBuffetList( Model model) {
+		//List<Buffet> buffet= buffetService.findAllByOrderByChefAsc();
 		List<Buffet> buffet= buffetService.findAll();
 		model.addAttribute("buffet", buffet);
 		return "buffetList.html";

@@ -13,14 +13,10 @@
     <div>
       <div class="basic-flex">
         <div class="child-flex">
-          <div><span>Nome: </span><span th:text="${chef.nome}"></span></div>
-          <div>
-            <span>Cognome: </span><span th:text="${chef.cognome}"></span>
-          </div>
-          <div>
-            <span>Nazionalita: </span
-            ><span th:text="${chef.nazionalita}"></span>
-          </div>
+
+          <h2 th:text="|${chef.nome} ${chef.cognome}|"></h2>
+          <div th:text="|Nazionalità: ${chef.nazionalita}|"></div>
+
         </div>
 
         <!--/*@thymesVar id="chef" type="it.uniroma3.siw.model.Chef"*/-->
@@ -29,6 +25,7 @@
         </div>
 
         <div class="child-flex" th:if="${!chef.buffets.isEmpty()}">
+          <div>buffet:</div>
           <div th:each="buffet : ${chef.buffets}">
             <a
               th:href="@{'/buffet' + '/' + ${buffet.id}}"

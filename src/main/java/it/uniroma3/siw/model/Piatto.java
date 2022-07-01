@@ -3,6 +3,7 @@ package it.uniroma3.siw.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,6 +21,10 @@ public class Piatto {
 
 	@ManyToMany
 	private List<Ingrediente> ingredienti;
+
+	public Piatto() {
+		ingredienti = new ArrayList<>();
+	}
 
 
 	public Long getId() {

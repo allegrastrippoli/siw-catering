@@ -3,11 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Ingrediente edit</title>
-    <link
-      th:href="@{/css/adminall.css}"
-      rel="stylesheet"
-      href="../../static/css/adminall.css"
-    />
+    <link th:href="@{/css/form.css}" rel="stylesheet" href="../../static/css/form.css">
   </head>
   <body>
     <form
@@ -22,7 +18,7 @@
       </div>
 
       <div id = "basic-flex" class = "child-flex">
-        <h2>Inserisci chef:</h2>
+        <h2>Inserisci ingrediente:</h2>
         <div>
           nome: <input type="text" th:field="*{nome}" th:value="*{nome}" />
           <div th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></div>

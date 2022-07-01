@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
   <head>
     <title>Piatto list</title>
     <link
@@ -12,20 +12,22 @@
     <div class="basic-flex">
       <div th:each="piatto : ${piatti}">
         <div class="child-flex">
-          <div class="title-settings" th:text="${piatto.nome}"></div>
-          <div th:text="${piatto.descrizione}"></div>
+          <h2 class="title-settings" th:text="${piatto.nome}"></h2>
+          <div th:text="|Descrizione: ${piatto.descrizione}|"></div>
 
           <div class="link-settings">
             <div>
               <a th:href="@{'/piatto' + '/' + ${piatto.id}}">dettagli piatto</a>
             </div>
             <div>
-              <a th:href="@{'/admin/piattoDelete' + '/' + ${piatto.id}}"
+              <a sec:authorize="isFullyAuthenticated()"
+                 th:href="@{'/admin/piattoDelete' + '/' + ${piatto.id}}"
                 >cancella piatto</a
               >
             </div>
             <div>
-              <a th:href="@{'/admin/piattoEdit' + '/' + ${piatto.id}}"
+              <a sec:authorize="isFullyAuthenticated()"
+                      th:href="@{'/admin/piattoEdit' + '/' + ${piatto.id}}"
                 >modifica piatto</a
               >
             </div>
